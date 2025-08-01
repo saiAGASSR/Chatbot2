@@ -241,7 +241,7 @@ useEffect(() => {
  return (
     <AnimatePresence >
       <motion.div 
-            className="bottom-0   rounded-xl px-3 py-2 flex flex-col items-center gap-2  bg-transparent ">
+            className=" bottom-0 w-full  rounded-xl px-3 py-2 flex flex-col items-center gap-2  bg-transparent ">
               {console.log("it is ChatInput rendered")}
               {console.log("input value in rendered chatInput",input)}
               {console.log(" ChatInput renderedCount",renderedCount.current)} 

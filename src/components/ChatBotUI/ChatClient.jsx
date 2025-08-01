@@ -20,7 +20,10 @@ export default function ChatClient() {
   // let jwt = searchParams.get('token') ? searchParams.get('token') : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIiwiZGV2aWNlSWQiOiIxMiIsImlhdCI6MTUxNjIzOTAyMn0.gLJjEVaLvi9Cqh0SM76fJK3BUEWb15Hw8tpz5PL0odw' ;
   let jwt = searchParams.get('token') ? searchParams.get('token') : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMTIzNTY3OSIsImRldmljZUlkIjoiMTIiLCJwcm9qZWN0SWQiOiI4R1QtMVdjLXZEbi1TdlkiLCJhcGlLZXkiOiJleUpoYkdjaU9pSklVekkxTmlKOS5leUp3Y205cVpXTjBTV1FpT2lJNFIxUXRNVmRqTFhaRWJpMVRkbGtpZlEueUswY1hLa3p0bDJUVWc3X3I2Y3dZLU5XYklkVFFjZkpUVXFCNmhES0NqOCIsImlhdCI6MTUxNjIzOTAyMn0.9UDcvDYxKFp7vm4n_xSzCaFgXPX1FHYKAGht-P4D5_M' ;
   let theme = searchParams.get('theme') ? searchParams.get('theme') : 'kids' ;
- 
+  const test = searchParams.get('test') ? searchParams.get('test') : 'false' ;
+
+  const isTest = test === 'true';
+
   console.log("jwt",jwt);
    
   const [closeAnimation,setCloseAnimation] = useState(false);
@@ -71,7 +74,7 @@ export default function ChatClient() {
     <AuroraBackground >
         {!closeAnimation && <Loading /> }
         {closeAnimation && 
-              <ChatbotUI voiceInput={voiceInput}  jwt={jwt}
+              <ChatbotUI voiceInput={voiceInput}  jwt={jwt} isTest={isTest}
         />
 
         }

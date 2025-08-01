@@ -8,8 +8,11 @@ import ChatBotHelp from './ChatBotHelp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { SpeechPopUp } from './SpeechPopUp';
+import ChangeUserIdForm from './ChangeUserIdForm';
+import { Button } from '@mui/material';
 
-const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat}) {
+
+const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat , isTest , handleUserIdChange }) {
     const [showModal, setShowModal] = useState(false);
     const deviceId = localStorage.getItem('deviceId')
     const userId = localStorage.getItem('userId')
@@ -18,6 +21,7 @@ const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat}) {
     console.log("deviceId from the localStorage Type",typeof deviceId);
     const isAndroid = ['11', '7', '6', '105'].includes(deviceId);
     const renderedCount = useRef(null);
+    const [showChangeUserIdForm , setShowChangeUserIdForm] = useState(false)
 
     useEffect(()=>{
         renderedCount.current += 1;  
@@ -49,12 +53,22 @@ const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat}) {
 
             </div>
 
-            <div className='flex flex-row'>
+            {isTest && 
+                <div>
+                      <Button  onClick={()=>setShowChangeUserIdForm(true)} color="error"> Change User Id</Button>
+                </div> 
+            }
+
+            { showChangeUserIdForm && < ChangeUserIdForm  handleUserIdChange={handleUserIdChange} setShowUserIdForm={setShowChangeUserIdForm}/> }
+
+            <div className='flex '>
                 {/* <div className="relative group mr-5">
 
                     <h3 className="text-lg text--600 font-medium font-sans color-blue">{userId}</h3>
 
                 </div> */}
+
+
 
                 
                 <div className="relative group">
@@ -108,12 +122,12 @@ const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat}) {
                     :   
                         <div className="relative group mt-1">
 
-                            <button onClick={() => setIsOpen(false)} className="text-black hover:text-gray-200 transition" title='Close'>
+                            <button onClick={() => setIsOpen(false)} className="text-black hover:text-gray-200 transition relative" title='Close'>
                             <X className="w-5 h-5" />
-                            </button>
-                            <div className="absolute bottom-full mb-1 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition bg-gray-800 text-black text-xs rounded py-1 px-2 z-10">
+                            <div className="absolute bottom-full mb-1 right-0 transform  opacity-0 group-hover:opacity-100 transition bg-gray-800 text-white text-xs rounded py-1 px-2 z-10">
                                 CloseChat
                             </div>
+                            </button>
 
 
 

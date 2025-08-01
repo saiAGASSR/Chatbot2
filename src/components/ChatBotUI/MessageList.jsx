@@ -7,7 +7,7 @@ import { MessageBubble } from './MessageBubble';
 import { memo, useEffect, useRef } from 'react';
 import Carousel from '@/blocks/Components/Carousel/Carousel';
 
-  const MessageList = memo(function MessageList ({ messages, isTyping, messagesEndRef, sendMessage ,messagesLength}) {
+  const MessageList = memo(function MessageList ({ messages, isTyping, messagesEndRef, sendMessage ,messagesLength , handleSimilarContent}) {
   const renderedCount = useRef(null); 
   useEffect(()=>{
     renderedCount.current += 1;  
@@ -16,7 +16,7 @@ import Carousel from '@/blocks/Components/Carousel/Carousel';
   })
   return (
     
-    <div className="flex-1  overflow-y-scroll no-scrollbar px-4 py-3 space-y-2  max-w-full ">
+    <div className="flex-1  overflow-y-scroll no-scrollbar px-4 py-3 space-y-2  max-w-full max-h-[calc(100dvh-100px)] h-[calc(100dvh-100px)] ">
         {console.log("it is MessageList rendered")}
         {console.log("it is MessageList rendered and messagesLength",messagesLength)}
         {console.log(" MessageList renderedCount In Return",renderedCount.current)} 
@@ -28,7 +28,7 @@ import Carousel from '@/blocks/Components/Carousel/Carousel';
 
             {/* Carousel Response */}
             {msg.carousel_results && 
-              <CarouselComponent items={msg.carousel_results} />
+              <CarouselComponent items={msg.carousel_results} handleSimilarContent={handleSimilarContent} />
               // <Carousel 
               //   items={msg.carousel_results}
               //   baseWidth={300}

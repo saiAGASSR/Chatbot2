@@ -46,8 +46,8 @@ export const MessageBubble = ({ from, text ,lastMessage }) => {
                 (<SplitText
                   text={text}
                   // className="text-center"
-                  // delay={30}
-                  // duration={0.6}
+                  delay={30}
+                  duration={0.6}
                   // ease="power3.out"
                   // splitType="chars"
                   from={{ opacity: 0, y: 40 }}

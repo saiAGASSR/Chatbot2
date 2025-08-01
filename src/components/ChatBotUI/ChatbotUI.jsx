@@ -20,7 +20,7 @@ import movieSuggestions from '../../../genericFunctions/suggestions';
 
 
 
-export default function ChatbotUI({voiceInput , jwt}) {
+export default function ChatbotUI({voiceInput , jwt , isTest}) {
   const [userId,setUserId] = useState(15)
   const [sessionId, setSessionId] = useState(null);
   const [projectId, setProjectId] = useState(null);
@@ -137,6 +137,58 @@ export default function ChatbotUI({voiceInput , jwt}) {
     }
   };
   
+  const handleSimilarContent = async (contentId)=>{
+
+    const url = `https://alphaapi.myreco.in/v1/similar_content/${contentId}?user_id=${userId}`
+    const config = {
+            headers : {
+              'Authorization' : `Bearer ${jwt}`,
+              'X-MYRECO-Project-ID' : projectId,
+              'X-MYRECO-API-Key' : apiKey
+            },
+          }
+
+    try {
+            setIsTyping(true)
+            const response = await axios.get(url,config);
+            console.log("response from similar",response.data);
+            const botReply = await response.data ;
+            setIsTyping(false)
+            setMessages((prev) => {
+                const updated = [...prev];
+
+
+                // Add the new bot message with carousel and suggestions (if any)
+                return [...updated, { from: 'bot', carousel_results: botReply.Carousel_Results, text: botReply.Bot_Response, suggestions: [] }];
+              });
+    } catch(error){
+
+      
+    // Check if we have suggestions in the previous message and remove them
+    setMessages((prev) => {
+      const updated = [...prev];
+
+
+      // Add the new bot message with carousel and suggestions (if any)
+      return [...updated, { from: 'bot', carousel_results: [], text: `error from bot `, suggestions: [] }];
+    });
+
+    }
+
+
+    
+
+
+
+
+  }
+    const handleUserIdChange = (value)=>{
+        console.log(value ,"userId changed ?");
+        const afterTrim = value.trim();
+        console.log(afterTrim);
+        
+        setUserId(afterTrim)
+      }
   
   const sendMessage = useMemo(()=>{
     return async (messageText) => {
@@ -172,7 +224,7 @@ export default function ChatbotUI({voiceInput , jwt}) {
 
   }
     
-  },[sessionId])
+  },[sessionId , userId])
   // const  sendMessage = async (messageText) => {
   //   if (!messageText) {
   //     console.log("send message is empty so setting it input ",input);
@@ -299,7 +351,7 @@ export default function ChatbotUI({voiceInput , jwt}) {
             
             
             {/* Header */}
-            <ChatHeader setIsOpen={setIsOpen} setClearChat={setClearChat} />
+            <ChatHeader setIsOpen={setIsOpen} setClearChat={setClearChat}  isTest={isTest} handleUserIdChange={handleUserIdChange} />
 
 
             {/* Messages */}
@@ -309,6 +361,7 @@ export default function ChatbotUI({voiceInput , jwt}) {
               messagesEndRef={messagesEndRef}
               sendMessage={sendMessage}
               messagesLength={messagesLength}
+              handleSimilarContent={handleSimilarContent}
             />
 
             {/* Input */}

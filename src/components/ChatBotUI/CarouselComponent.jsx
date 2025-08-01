@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 
 
 
-export default function CarouselComponent({ items }) {
+export default function CarouselComponent({ items , handleSimilarContent }) {
   const deviceId = localStorage.getItem('deviceId')
   const projectId = localStorage.getItem('projectId')
   const [activeIndex, setActiveIndex] = useState(0);
@@ -23,6 +23,8 @@ export default function CarouselComponent({ items }) {
   console.log("deviceId from the localStorage",deviceId);
   console.log("deviceId from the localStorage",deviceId);
   console.log("deviceId from the localStorage Type",typeof deviceId);
+
+
   
 
   
@@ -73,6 +75,8 @@ export default function CarouselComponent({ items }) {
         />
     
       <div className="absolute bottom-2.4 right-2 flex gap-2 z-10 ">
+        <Tooltip title={'Add To WatchList'} >
+        
         <button onClick={(e) => {
          e.preventDefault();
          handleAddToWatchlist(item)
@@ -82,14 +86,23 @@ export default function CarouselComponent({ items }) {
               <MdDone  className="text-white w-6 h-6" />
             ) : (
               <FaPlus  className="text-white w-6 h-6 hover:text-yellow-400" />
-            )}        </button>
+            )}        
+        </button>
+        </Tooltip>
+
+        <Tooltip title={'Show similar movies related to this '} >
+
         <button onClick={(e) => {
          e.preventDefault();
-         handleSecondaryAction(item)
+         handleSimilarContent(item.contentid)
         }
         } className=" p-1 rounded-full shadow">
             <FaMagic  className="text-white w-6 h-6"/>
         </button>
+        </Tooltip >
+
+
+
       </div>
 
         <div className="p-2">
