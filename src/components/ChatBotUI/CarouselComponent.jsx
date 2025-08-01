@@ -90,14 +90,14 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
         </button>
         </Tooltip>
 
-        <Tooltip title={'Show similar movies related to this '} >
+        <Tooltip title={'Show similar to this'} >
 
         <button onClick={(e) => {
          e.preventDefault();
          handleSimilarContent(item.contentid)
         }
         } className=" p-1 rounded-full shadow">
-            <FaMagic  className="text-white w-6 h-6"/>
+            <FaMagic  className="text-white w-6 h-6 hover:text-yellow-400"/>
         </button>
         </Tooltip >
 
