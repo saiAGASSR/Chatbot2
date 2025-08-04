@@ -1,0 +1,128 @@
+{
+  "moviesConfig": [
+    {
+      "value": "English",
+      "type": "language",
+      "selected": false
+    },
+    {
+      "value": "Hindi",
+      "type": "language",
+      "selected": false
+    },
+    {
+      "value": "Telugu",
+      "type": "language",
+      "selected": false
+    },
+    {
+      "value": "Tamil",
+      "type": "language",
+      "selected": false
+    },
+    {
+      "value": "Action",
+      "type": "genre",
+      "selected": false
+    },
+    {
+      "value": "Comedy",
+      "type": "genre",
+      "selected": false
+    },
+    {
+      "value": "Horror",
+      "type": "genre",
+      "selected": false
+    },
+    {
+      "value": "Fantasy",
+      "type": "genre",
+      "selected": false
+    }
+  ],
+  "tvSeriesConfig": [
+    {
+      "value": "English",
+      "type": "language",
+      "selected": false
+    },
+    {
+      "value": "Hindi",
+      "type": "language",
+      "selected": false
+    },
+    {
+      "value": "Telugu",
+      "type": "language",
+      "selected": false
+    },
+    {
+      "value": "Tamil",
+      "type": "language",
+      "selected": false
+    },
+    {
+      "value": "Action",
+      "type": "genre",
+      "selected": false
+    },
+    {
+      "value": "Comedy",
+      "type": "genre",
+      "selected": false
+    },
+    {
+      "value": "Horror",
+      "type": "genre",
+      "selected": false
+    },
+    {
+      "value": "Fantasy",
+      "type": "genre",
+      "selected": false
+    }
+  ],
+  "liveConfig": [
+    {
+      "value": "English",
+      "type": "language",
+      "selected": false
+    },
+    {
+      "value": "Hindi",
+      "type": "language",
+      "selected": false
+    },
+    {
+      "value": "Telugu",
+      "type": "language",
+      "selected": false
+    },
+    {
+      "value": "Tamil",
+      "type": "language",
+      "selected": false
+    },
+    {
+      "value": "Action",
+      "type": "genre",
+      "selected": false
+    },
+    {
+      "value": "Comedy",
+      "type": "genre",
+      "selected": false
+    },
+    {
+      "value": "Horror",
+      "type": "genre",
+      "selected": false
+    },
+    {
+      "value": "Fantasy",
+      "type": "genre",
+      "selected": false
+    }
+  ]
+}

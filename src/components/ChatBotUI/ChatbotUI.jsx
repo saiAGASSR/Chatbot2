@@ -346,7 +346,7 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="xl:w-1/2  w-full h-full   rounded-xl shadow-lg flex flex-col "
+            className="relative xl:w-1/2  w-full h-full   rounded-xl shadow-lg flex flex-col "
             >
             
             

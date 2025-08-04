@@ -68,6 +68,7 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
       <a href={decideContentPath(item , projectId , deviceId)} target='_blank' rel="noopener noreferrer" key={idx}>
       <div  className="px-2 ">
       <div className="relative  rounded-xl shadow-md overflow-hidden h-full border border-gray-950 transition-transform duration-300 hover:scale-104 group">
+        {console.log("console item content name " , item.contentname , "img url ", item.imgurl,"  final content path " ,decideContentPath(item , projectId , deviceId) , "contentpath",item.contentPath)}
         <img
         src={item.imgurl}
         alt={item.contentname}

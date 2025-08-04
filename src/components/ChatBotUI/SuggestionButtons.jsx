@@ -10,7 +10,7 @@ export function SuggestionButtons({ suggestions , istyping  ,sendMessage }) {
                   onClick={() => {
                     sendMessage(s);
                   }}
-                  className="border border-grey-500 font-semibold font-sans text-white opacity-0.7 text-sm px-2 py-1 rounded-full hover:scale-105 transition delay-150 ease-in-out  mt-1 "
+                  className="border border-grey-500 font-semibold font-sans text-white opacity-0.7 text-sm px-2 py-1 rounded-full hover:scale-105 transition duration-700 ease-in-out  mt-1 "
                   disabled={istyping}
                 >
                   {s}
