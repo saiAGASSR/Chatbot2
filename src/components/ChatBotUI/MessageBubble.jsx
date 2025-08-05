@@ -1,16 +1,19 @@
 // components/MessageBubble.jsx
 import Avatar from '@mui/material/Avatar';
 import SplitText from "./SplitText";
+import React from 'react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 
-export const MessageBubble = ({ from, text ,lastMessage }) => {
+
+export const MessageBubble = ({ from, text , lastMessage }) => {
   const handleAnimationComplete = () => {
   console.log('All letters have animated! lastMessage messagebox');
 };
   return (
 
           
-    <div className={`flex  ${from === 'user' ? 'justify-end' : 'justify-start'}`}>
+    <div className={`flex  ${from === 'user' ? 'justify-end mt-10' : 'justify-start'}`}>
       {lastMessage && console.log("last message ? messagebox",lastMessage)}
       {from && console.log("from ? messagebox",from)}
       {text && console.log("text  ?messagebox " ,text)}
@@ -30,6 +33,13 @@ export const MessageBubble = ({ from, text ,lastMessage }) => {
         className='animate-pulse'
         
       /> 
+      // <div className='w-20 h-10'>
+      //       <DotLottieReact
+      //         src="https://lottie.host/7a3f29a1-a94b-4558-8720-27707ec7a824/gRhI0ECzKR.lottie"
+      //         loop
+      //         autoplay
+      //         />
+      // </div>
     }
 
   
@@ -63,11 +73,19 @@ export const MessageBubble = ({ from, text ,lastMessage }) => {
 
       { from === 'user' && 
       
-      <Avatar
-        alt='you'
-        src='https://i.imgur.com/ayWNFic.png'
-        sx={{ width: 32, height: 32 }}
-      /> 
+      // <Avatar
+      //   alt='you'
+      //   src='https://i.imgur.com/ayWNFic.pnG'
+      //   sx={{ width: 32, height: 32 }}
+      
+      // /> 
+      <div className='w-13 h-13' > 
+            <DotLottieReact
+                  src="https://lottie.host/2d98a8d5-e39c-4f19-9d46-d316efc378b7/2vU786SDu1.lottie"
+                  loop
+                  autoplay
+                /> 
+      </div>
     }
   </div>
 );

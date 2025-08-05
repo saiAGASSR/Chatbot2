@@ -20,7 +20,7 @@ import filtersConfig from './../../../filters.json';
 
   const [browseButtonsClicked , setBrowseButtonsClicked]  = useState(false);
 
-  const  browseButtonsStyle = 'max-w-max	font-semibold font-sans text-sm  bg-transparent hover:bg-grey-500 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:scale-[1.1] rounded-full transition duration-700 ease-in-out'
+  const  browseButtonsStyle = '	font-semibold font-sans text-sm  bg-transparent hover:bg-grey-500 text-white font-semibold hover:text-white py-1.5 px-1.5 border border-white hover:scale-[1.1] rounded-full transition duration-700 ease-in-out'
 
   console.log("filtersConfig");
   console.log(filtersConfig);
@@ -41,12 +41,18 @@ import filtersConfig from './../../../filters.json';
 
   return (
     
-    <div className="flex-1  overflow-y-scroll no-scrollbar px-4 py-3 space-y-2  max-w-full max-h-[calc(100dvh-100px)] h-[calc(100dvh-100px)] ">
+    <div className="flex-1 w-max overflow-y-scroll no-scrollbar px-4 py-3 space-y-2  max-w-full max-h-[calc(100dvh-100px)] h-[calc(100dvh-100px)] ">
         {console.log("it is MessageList rendered")}
+        {console.log("it is MessageList rendered",messages)}
         {console.log("it is MessageList rendered and messagesLength",messagesLength)}
         {console.log(" MessageList renderedCount In Return",renderedCount.current)} 
         {messages.map((msg, index) => (
           <div key={index} className={`flex-1 flex-col  space-y-2 ${msg.from === 'user' ? 'items-end' : 'items-start'} `}>
+            {console.log("each message",msg.from)}
+            {console.log("each message",msg.text)}
+            {console.log("each message",msg.carousel_results)}
+            {console.log("each message",msg.searchSuggestionsResponse)}
+            {console.log("each message",msg.suggestions)}
             
             {/* Message Bubble */}
             {msg.text && <MessageBubble from={msg.from} text={msg.text}  lastMessage={(messagesLength-1) === index}/>}
@@ -65,9 +71,19 @@ import filtersConfig from './../../../filters.json';
 
               //   />
             }
+            {msg.searchSuggestionsResponse && <div><p className="text-sm font-bold text-white dark:text-white max-w-[90%]  ml-5 mt-5">{msg.searchSuggestionsResponse}</p></div> }
+
+            {/* Suggestions */}
+            {msg.suggestions && <SuggestionButtons suggestions={msg.suggestions} istyping={isTyping} sendMessage={sendMessage}  />}
+
+            {console.log((index === 1),"explore more")}
+            {console.log((index),"explore more")}
+
+            {(index === 1) &&  msg.carousel_results && <div><p className="text-sm font-bold text-white dark:text-white max-w-[90%]  ml-5 mt-3">Explore More</p></div> }
+
 
             {msg.carousel_results && (
-              <div className='flex  gap-2'>
+              <div className='ml-4 flex  gap-2 mt-3 '>
                 <button className={browseButtonsStyle} onClick={()=> 
                     {setFiltersTitle('Browse Movies') 
                       setBrowseButtonsClicked(true)
@@ -92,9 +108,9 @@ import filtersConfig from './../../../filters.json';
               </div>
               
             )}
+            
 
-            {/* Suggestions */}
-            {msg.suggestions && <SuggestionButtons suggestions={msg.suggestions} istyping={isTyping} sendMessage={sendMessage} />}
+
 
             {msg.carousel_results && browseButtonsClicked && <BrowseFilters title={filtersTitle} data={configBySelect} setBrowseButtonsClicked={setBrowseButtonsClicked} sendMessage={sendMessage}/>}
           </div>

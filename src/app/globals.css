@@ -26,21 +26,25 @@ body {
 .weatherInfoParagraphs{
   margin-bottom: 10px;
 }
-.slick-prev:before,
+.slick-
+:before,
 .slick-next:before {
-  color: rgb(0, 0, 0) !important;
+  color: rgb(255, 255, 255) !important;
  
 }
 
 .slick-prev:before{
 
     margin-left: 1px;
+    z-index: 1;
+
 
 }
 
 .slick-next:before{
 
-margin-right: 0px;
+/* margin-right: 5px; */
+z-index: 1;
 
 }
 

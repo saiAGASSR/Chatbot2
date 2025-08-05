@@ -17,12 +17,38 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
   const deviceId = localStorage.getItem('deviceId')
   const projectId = localStorage.getItem('projectId')
   const [activeIndex, setActiveIndex] = useState(0);
-  const [watchlistItems, setWatchlistItems] = useState({'30670_movie' : true });
 
 
   console.log("deviceId from the localStorage",deviceId);
   console.log("deviceId from the localStorage",deviceId);
   console.log("deviceId from the localStorage Type",typeof deviceId);
+
+  const initialwatchListItems = []; 
+  const contentIds = items.map(item=>{
+      let obj = {};
+      obj[item.contentid] = false
+      initialwatchListItems.push(obj)
+    
+  });
+  const [watchlistItems, setWatchlistItems] = useState(initialwatchListItems);
+
+
+  console.log("content ids array ", watchlistItems);
+   
+  const handleAddToWatchlist =(item)=>{
+
+    setWatchlistItems(prev=>{
+      const newItems = [...prev];
+      const updated = newItems.map(i=>{
+        if(i.contentid === item.contentid){
+          return i[item.contentid] = !i.contentid ;
+        }
+        else return i;
+      })
+      return updated;
+    })
+
+  }
 
 
   
@@ -37,6 +63,7 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
   sliderRef.current.slickPause();
   };
   const settings = {
+    
   dots: false,
   infinite: items.length > 1,
   speed: 500,
@@ -62,7 +89,7 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
   };
 
   return (
-  <div className="w-full px-2.5 mt-4 mb-4  ">  
+  <div className="w-full px-2.5 mt-4 mb-4 ">  
     <Slider {...settings}>
     {items.map((item, idx) => (
       <a href={decideContentPath(item , projectId , deviceId)} target='_blank' rel="noopener noreferrer" key={idx}>
@@ -72,7 +99,7 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
         <img
         src={item.imgurl}
         alt={item.contentname}
-        className="w-full h-40 object-cover"
+        className="w-full h-full object-contain"
         />
     
       <div className="absolute bottom-2.4 right-2 flex gap-2 z-10 ">

@@ -48,7 +48,8 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
         </div>
       </>
     ),
-    // suggestions:movieSuggestions,
+    // suggestions: movieSuggestions,
+    // searchSuggestionsResponse : 'Based on Streaming, here are personalized live channels curated for you',
     // carousel_results : carousel_results
     
   }
@@ -205,8 +206,10 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
 
     // Fetch bot reply (assuming this fetches the bot response)
     const botReply = await fetchBotResponse(messageText);
-    console.log("response from bot ",botReply);
+    console.log("response from bot",botReply);
     console.log("type of response from bot",typeof response);
+
+    // let searchResponse = botReply.Bot_search_suggestion_response ? botReply.Bot_search_suggestion_response : null ;
     
     
 
@@ -303,13 +306,20 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
           from: 'bot',
           carousel_results: botReply.Carousel_Results,
           text: botReply.Bot_Response,
-          suggestions: botReply.Search_Suggestions
+          suggestions: botReply.Search_Suggestions,
+          searchSuggestionsResponse : botReply.Bot_search_suggestion_response 
         }
       ]);
     };
+    setMessages((prevMessages)=>{
+        const restart = [...prevMessages];
+        restart.splice(1,restart.length)
 
+        return restart;
+      })
+    
     fetchInitialBotMessage();
-  }, [sessionId]);
+  }, [sessionId,userId]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });

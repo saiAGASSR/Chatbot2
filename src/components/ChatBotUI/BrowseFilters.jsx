@@ -111,8 +111,9 @@ const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
 
                 </div>
 
-                <div>
+                <div className="flex">
                     <button className="mt-4 ml-5 text-xl font-semibold leading-none tracking-tight text-gray-900 md:text-2xl lg:text-2xl dark:text-white bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={handleSubmit}>Submit</button>
+                    <button className="mt-4 ml-5 text-xl font-semibold leading-none tracking-tight text-gray-900 md:text-2xl lg:text-2xl dark:text-white bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full" onClick={()=>{setBrowseButtonsClicked(false)}}>Close</button>
                 </div>
 
 

@@ -3,7 +3,7 @@
 export function SuggestionButtons({ suggestions , istyping  ,sendMessage }) {
 
   return (
-    <div className="flex flex-wrap justify-center gap-2 px-4 py-2 mt-5">
+    <div className="flex flex-wrap justify-center gap-2 px-4 py-2 mt-3">
               {suggestions.map((s, idx) => (
                 <button
                   key={idx}
