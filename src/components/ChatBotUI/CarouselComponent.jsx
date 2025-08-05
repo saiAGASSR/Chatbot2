@@ -26,24 +26,31 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
   const initialwatchListItems = []; 
   const contentIds = items.map(item=>{
       let obj = {};
-      obj[item.contentid] = false
-      initialwatchListItems.push(obj)
+      obj['contentid'] = item.contentid;
+      obj['inWatchlist'] = false;
+      initialwatchListItems.push(obj);
     
   });
   const [watchlistItems, setWatchlistItems] = useState(initialwatchListItems);
 
 
-  console.log("content ids array ", watchlistItems);
+  console.log("watchlistItems", watchlistItems);
    
   const handleAddToWatchlist =(item)=>{
 
     setWatchlistItems(prev=>{
       const newItems = [...prev];
       const updated = newItems.map(i=>{
+        console.log("i value watchlistItems i value ",i);
+        console.log("i value watchlistItems its contentid value",i[item.contentid]);
+        console.log("i value watchlistItems item.content id which is clicked",item.contentid);
         if(i.contentid === item.contentid){
-          return i[item.contentid] = !i.contentid ;
+          
+          return {...i,'inWatchlist':!i.inWatchlist}
+        }else{
+          return i
         }
-        else return i;
+
       })
       return updated;
     })
@@ -93,6 +100,7 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
     <Slider {...settings}>
     {items.map((item, idx) => (
       <a href={decideContentPath(item , projectId , deviceId)} target='_blank' rel="noopener noreferrer" key={idx}>
+        
       <div  className="px-2 ">
       <div className="relative  rounded-xl shadow-md overflow-hidden h-full border border-gray-950 transition-transform duration-300 hover:scale-104 group">
         {console.log("console item content name " , item.contentname , "img url ", item.imgurl,"  final content path " ,decideContentPath(item , projectId , deviceId) , "contentpath",item.contentPath)}
@@ -110,7 +118,7 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
          handleAddToWatchlist(item)
         }
         } className=" p-1 rounded-full shadow">
-          {watchlistItems[item.contentid] ? (
+          { (watchlistItems.filter(i=> (i.contentid == item.contentid))[0].inWatchlist) ? (
               <MdDone  className="text-white w-6 h-6" />
             ) : (
               <FaPlus  className="text-white w-6 h-6 hover:text-yellow-400" />
