@@ -10,6 +10,8 @@ import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { SpeechPopUp } from './SpeechPopUp';
 import ChangeUserIdForm from './ChangeUserIdForm';
 import { Button } from '@mui/material';
+import Tooltip from '@mui/material/Tooltip';
+
 
 
 const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat , isTest , handleUserIdChange }) {
@@ -60,6 +62,7 @@ const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat , isTest 
             }
 
             { showChangeUserIdForm && < ChangeUserIdForm  handleUserIdChange={handleUserIdChange} setShowUserIdForm={setShowChangeUserIdForm}/> }
+            
 
             <div className='flex '>
                 {/* <div className="relative group mr-5">
@@ -70,41 +73,42 @@ const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat , isTest 
 
 
 
-                
-                <div className="relative group">
+                    <Tooltip title="Help">
 
-                    <button
-                        className="text-black hover:text-blue-600 transition mr-2"
-                        onClick={() => setShowModal(true)}
-                    >
+                        <div >
 
-                    <div className="ml-4 flex items-center">
-                    <FontAwesomeIcon icon={faCircleInfo} beat className="text-black-600 text-xl" />
-                   </div>     
+                            <button
+                                className="text-black hover:text-blue-600 transition mr-2"
+                                onClick={() => setShowModal(true)}
+                            >
 
-                                   </button>
-                    <div className="absolute bottom-full mb-1 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition bg-gray-800 text-white text-xs rounded py-1 px-2 z-10">
-                        Help
-                    </div>
-                </div>
+                                    <FontAwesomeIcon icon={faCircleInfo} beat className="text-black-600 text-xl" />
+
+                            </button>
 
 
 
+                        </div>
 
-                    <div className="relative group">
-                    <button
-                        className="text-black hover:text-red-600 transition mr-2"
-                        onClick={() => setClearChat(true)}
-                    >
-                        <ReplayIcon color="error" />
-                    </button>
-                    <div className="absolute bottom-full mb-1 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition bg-gray-800 text-white text-xs rounded py-1 px-2 z-10">
-                        ReloadChat
-                    </div>
-                    </div>
+                    </Tooltip>  
+
+                    <Tooltip title="Reload">
+
+                        <div >
+                            <button
+                                className="text-black hover:text-red-600 transition mr-2"
+                                onClick={() => setClearChat(true)}
+                            >
+                                <ReplayIcon color="error" />
+                            </button>
+                        </div>
+
+                    </Tooltip>
+
+                    <Tooltip title="Close Chat">
 
                     {isAndroid ?  
-                        <div className="relative group mt-1">
+                        <div className=" mt-1">
                             <button
                                 onClick={() => {
                                 window.location.href = "https://moviesandtv.myvi.in/appclose?redirectionURL=back";
@@ -114,25 +118,29 @@ const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat , isTest 
                             >
                                 <X className="w-5 h-5" />
                             </button>
-                            <div className="absolute bottom-full mb-1 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition bg-gray-800 text-white text-xs rounded py-1 px-2 z-10">
-                                CloseChat
-                            </div>
+
                         </div>
 
                     :   
-                        <div className="relative group mt-1">
+                        <div className="mt-2">
 
-                            <button onClick={() => setIsOpen(false)} className="text-black hover:text-gray-200 transition relative" title='Close'>
+                            <button onClick={() => setIsOpen(false)} className="text-red-500 hover:text-red-7950 transition relative" title='Close'>
                             <X className="w-5 h-5" />
-                            <div className="absolute bottom-full mb-1 right-0 transform  opacity-0 group-hover:opacity-100 transition bg-gray-800 text-white text-xs rounded py-1 px-2 z-10">
-                                CloseChat
-                            </div>
+
                             </button>
-
-
-
                         </div>
                     }
+
+                    </Tooltip>  
+
+                    <Tooltip title="Version Number">
+                
+                        <div className='ml-2'>
+
+                            <p class="text-xs text-gray-500 font-mono">v1.0.0</p>
+
+                        </div>
+                    </Tooltip>
 
 
 
@@ -140,6 +148,7 @@ const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat , isTest 
 
              {/* Modal */}
             {showModal &&  <ChatBotHelp setShowModal={setShowModal} />}
+
 
 
         </div>
