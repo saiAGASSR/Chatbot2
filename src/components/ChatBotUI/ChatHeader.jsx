@@ -64,7 +64,7 @@ const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat , isTest 
             { showChangeUserIdForm && < ChangeUserIdForm  handleUserIdChange={handleUserIdChange} setShowUserIdForm={setShowChangeUserIdForm}/> }
             
 
-            <div className='flex '>
+            <div className='flex items-center'>
                 {/* <div className="relative group mr-5">
 
                     <h3 className="text-lg text--600 font-medium font-sans color-blue">{userId}</h3>
