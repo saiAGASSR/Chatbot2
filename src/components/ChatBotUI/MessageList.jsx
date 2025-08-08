@@ -20,7 +20,7 @@ import filtersConfig from './../../../filters.json';
 
   const [browseButtonsClicked , setBrowseButtonsClicked]  = useState(false);
 
-  const  browseButtonsStyle = '	font-semibold font-sans text-sm  bg-transparent hover:bg-grey-500 text-white font-semibold hover:text-white py-1.5 px-1.5 border border-white hover:scale-[1.1] rounded-full transition duration-700 ease-in-out'
+  const  browseButtonsStyle = '	font-semibold font-sans text-sm  bg-transparent hover:bg-grey-500 text-white font-semibold hover:text-white py-1.5 px-1.5 border border-white hover:scale-[1.1] rounded-lg transition duration-700 ease-in-out'
 
   console.log("filtersConfig");
   console.log(filtersConfig);
@@ -41,18 +41,11 @@ import filtersConfig from './../../../filters.json';
 
   return (
     
-    <div className="flex-1 w-max overflow-y-scroll no-scrollbar px-4 py-3 space-y-2  max-w-full max-h-[calc(100dvh-100px)] h-[calc(100dvh-100px)] ">
-        {console.log("it is MessageList rendered")}
-        {console.log("it is MessageList rendered",messages)}
-        {console.log("it is MessageList rendered and messagesLength",messagesLength)}
-        {console.log(" MessageList renderedCount In Return",renderedCount.current)} 
+    <div className="flex-1 w-max overflow-y-scroll no-scrollbar px-4 py-3 space-y-2  max-w-full  ">
+
         {messages.map((msg, index) => (
           <div key={index} className={`flex-1 flex-col  space-y-2 ${msg.from === 'user' ? 'items-end' : 'items-start'} `}>
-            {console.log("each message",msg.from)}
-            {console.log("each message",msg.text)}
-            {console.log("each message",msg.carousel_results)}
-            {console.log("each message",msg.searchSuggestionsResponse)}
-            {console.log("each message",msg.suggestions)}
+
             
             {/* Message Bubble */}
             {msg.text && <MessageBubble from={msg.from} text={msg.text}  lastMessage={(messagesLength-1) === index}/>}
@@ -60,16 +53,6 @@ import filtersConfig from './../../../filters.json';
             {/* Carousel Response */}
             {msg.carousel_results && 
               <CarouselComponent items={msg.carousel_results} handleSimilarContent={handleSimilarContent} />
-              // <Carousel 
-              //   items={msg.carousel_results}
-              //   baseWidth={300}
-              //   autoplay={true}
-              //   autoplayDelay={3000}
-              //   pauseOnHover={true}
-              //   loop={true}
-              //   round={false}
-
-              //   />
             }
             {msg.searchSuggestionsResponse && <div><p className="text-sm font-bold text-white dark:text-white max-w-[90%]  ml-5 mt-5">{msg.searchSuggestionsResponse}</p></div> }
 
@@ -108,10 +91,6 @@ import filtersConfig from './../../../filters.json';
               </div>
               
             )}
-            
-
-
-
             {msg.carousel_results && browseButtonsClicked && <BrowseFilters title={filtersTitle} data={configBySelect} setBrowseButtonsClicked={setBrowseButtonsClicked} sendMessage={sendMessage}/>}
           </div>
         ))}
@@ -122,7 +101,7 @@ import filtersConfig from './../../../filters.json';
 
 
           {/* Always scroll to the bottom */}
-          <div ref={messagesEndRef} />
+          <div className='h-1' ref={messagesEndRef} />
     </div>
   );
 })

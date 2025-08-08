@@ -48,7 +48,10 @@
     "uuid": "^11.1.0"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.27.1",
     "@eslint/eslintrc": "^3",
+    "@locator/babel-jsx": "^0.4.4",
+    "@locator/runtime": "^0.4.4",
     "concurrently": "^9.1.2",
     "eslint": "^9",
     "eslint-config-next": "15.1.7"

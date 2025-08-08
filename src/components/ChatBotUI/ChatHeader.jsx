@@ -124,7 +124,7 @@ const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat , isTest 
                     :   
                         <div className="mt-2">
 
-                            <button onClick={() => setIsOpen(false)} className="text-red-500 hover:text-red-7950 transition relative" title='Close'>
+                            <button onClick={() => setIsOpen(false)} className="text-red-500 hover:text-red-750" title='Close'>
                             <X className="w-5 h-5" />
 
                             </button>
@@ -137,7 +137,7 @@ const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat , isTest 
                 
                         <div className='ml-2'>
 
-                            <p class="text-xs text-gray-500 font-mono">v1.0.0</p>
+                            <p className="text-xs text-gray-500 font-mono">v1.0.0</p>
 
                         </div>
                     </Tooltip>

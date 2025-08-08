@@ -1,128 +1,121 @@
 {
-  "moviesConfig": [
-    {
-      "value": "English",
-      "type": "language",
-      "selected": false
-    },
-    {
-      "value": "Hindi",
-      "type": "language",
-      "selected": false
-    },
-    {
-      "value": "Telugu",
-      "type": "language",
-      "selected": false
-    },
-    {
-      "value": "Tamil",
-      "type": "language",
-      "selected": false
-    },
-    {
-      "value": "Action",
-      "type": "genre",
-      "selected": false
-    },
-    {
-      "value": "Comedy",
-      "type": "genre",
-      "selected": false
-    },
-    {
-      "value": "Horror",
-      "type": "genre",
-      "selected": false
-    },
-    {
-      "value": "Fantasy",
-      "type": "genre",
-      "selected": false
-    }
-  ],
-  "tvSeriesConfig": [
-    {
-      "value": "English",
-      "type": "language",
-      "selected": false
-    },
-    {
-      "value": "Hindi",
-      "type": "language",
-      "selected": false
-    },
-    {
-      "value": "Telugu",
-      "type": "language",
-      "selected": false
-    },
-    {
-      "value": "Tamil",
-      "type": "language",
-      "selected": false
-    },
-    {
-      "value": "Action",
-      "type": "genre",
-      "selected": false
-    },
-    {
-      "value": "Comedy",
-      "type": "genre",
-      "selected": false
-    },
-    {
-      "value": "Horror",
-      "type": "genre",
-      "selected": false
-    },
-    {
-      "value": "Fantasy",
-      "type": "genre",
-      "selected": false
-    }
-  ],
-  "liveConfig": [
-    {
-      "value": "English",
-      "type": "language",
-      "selected": false
-    },
-    {
-      "value": "Hindi",
-      "type": "language",
-      "selected": false
-    },
-    {
-      "value": "Telugu",
-      "type": "language",
-      "selected": false
-    },
-    {
-      "value": "Tamil",
-      "type": "language",
-      "selected": false
-    },
-    {
-      "value": "Action",
-      "type": "genre",
-      "selected": false
-    },
-    {
-      "value": "Comedy",
-      "type": "genre",
-      "selected": false
-    },
-    {
-      "value": "Horror",
-      "type": "genre",
-      "selected": false
-    },
-    {
-      "value": "Fantasy",
-      "type": "genre",
-      "selected": false
-    }
-  ]
+  "moviesConfig": 
+                    [
+
+                        { "value": "English", "type": "language", "selected": false },
+                        { "value": "Hindi", "type": "language", "selected": false },
+                        { "value": "Telugu", "type": "language", "selected": false },
+                        { "value": "Tamil", "type": "language", "selected": false },
+                        { "value": "Malayalam", "type": "language", "selected": false },
+                        { "value": "Kannada", "type": "language", "selected": false },
+                        { "value": "Punjabi", "type": "language", "selected": false },
+                        { "value": "Marathi", "type": "language", "selected": false },
+                        { "value": "Bengali", "type": "language", "selected": false },
+                        { "value": "Gujarati", "type": "language", "selected": false },
+
+
+                        { "value": "Adventure", "type": "genre", "selected": false },
+                        { "value": "Mystery", "type": "genre", "selected": false },
+                        { "value": "Comedy", "type": "genre", "selected": false },
+                        { "value": "Talkshow", "type": "genre", "selected": false },
+                        { "value": "ComedyHorror", "type": "genre", "selected": false },
+                        { "value": "RomanceThriller", "type": "genre", "selected": false },
+                        { "value": "Music", "type": "genre", "selected": false },
+                        { "value": "Action", "type": "genre", "selected": false },
+                        { "value": "Thriller", "type": "genre", "selected": false },
+
+
+                        { "value": "Hotstar", "type": "partner", "selected": false },
+                        { "value": "Amazon Prime Video", "type": "partner", "selected": false },
+                        { "value": "Netflix", "type": "partner", "selected": false },
+                        { "value": "Sony LIV", "type": "partner", "selected": false },
+                        { "value": "ZEE5", "type": "partner", "selected": false },
+                        { "value": "JioCinema", "type": "partner", "selected": false },
+                        { "value": "Aha", "type": "partner", "selected": false },
+                        { "value": "Sun NXT", "type": "partner", "selected": false },
+                        { "value": "Eros Now", "type": "partner", "selected": false },
+                        { "value": "MX Player", "type": "partner", "selected": false }
+
+                    ],
+
+  "tvSeriesConfig": 
+                    [                          
+                        { "value": "English", "type": "language", "selected": false },
+                        { "value": "Hindi", "type": "language", "selected": false },
+                        { "value": "Telugu", "type": "language", "selected": false },
+                        { "value": "Tamil", "type": "language", "selected": false },
+                        { "value": "Malayalam", "type": "language", "selected": false },
+                        { "value": "Kannada", "type": "language", "selected": false },
+                        { "value": "Punjabi", "type": "language", "selected": false },
+                        { "value": "Marathi", "type": "language", "selected": false },
+                        { "value": "Bengali", "type": "language", "selected": false },
+                        { "value": "Gujarati", "type": "language", "selected": false },
+
+
+                        { "value": "actioncomedy", "type": "genre", "selected": false },
+                        { "value": "serials", "type": "genre", "selected": false },
+                        { "value": "biographical", "type": "genre", "selected": false },
+                        { "value": "drama", "type": "genre", "selected": false },
+                        { "value": "crime", "type": "genre", "selected": false },
+                        { "value": "korean", "type": "genre", "selected": false },
+                        { "value": "entertainment", "type": "genre", "selected": false },
+                        { "value": "fantasy", "type": "genre", "selected": false },
+                        { "value": "religious", "type": "genre", "selected": false },
+                        { "value": "neo-noir", "type": "genre", "selected": false },
+                        { "value": "anime", "type": "genre", "selected": false },
+                        { "value": "war", "type": "genre", "selected": false },
+                        { "value": "gameshow", "type": "genre", "selected": false },
+
+
+                        { "value": "Hotstar", "type": "partner", "selected": false },
+                        { "value": "Amazon Prime Video", "type": "partner", "selected": false },
+                        { "value": "Netflix", "type": "partner", "selected": false },
+                        { "value": "Sony LIV", "type": "partner", "selected": false },
+                        { "value": "ZEE5", "type": "partner", "selected": false },
+                        { "value": "JioCinema", "type": "partner", "selected": false },
+                        { "value": "Aha", "type": "partner", "selected": false },
+                        { "value": "Sun NXT", "type": "partner", "selected": false },
+                        { "value": "Eros Now", "type": "partner", "selected": false },
+                        { "value": "MX Player", "type": "partner", "selected": false }
+                    ],
+
+
+  "liveConfig": 
+              [
+                  { "value": "English", "type": "language", "selected": false },
+                  { "value": "Hindi", "type": "language", "selected": false },
+                  { "value": "Telugu", "type": "language", "selected": false },
+                  { "value": "Tamil", "type": "language", "selected": false },
+                  { "value": "Malayalam", "type": "language", "selected": false },
+                  { "value": "Kannada", "type": "language", "selected": false },
+                  { "value": "Punjabi", "type": "language", "selected": false },
+                  { "value": "Marathi", "type": "language", "selected": false },
+                  { "value": "Bengali", "type": "language", "selected": false },
+                  { "value": "Gujarati", "type": "language", "selected": false },
+
+
+                  { "value": "news", "type": "genre", "selected": false },
+                  { "value": "spiritual", "type": "genre", "selected": false },
+                  { "value": "kids", "type": "genre", "selected": false },
+                  { "value": "musical", "type": "genre", "selected": false },
+                  { "value": "badminton", "type": "genre", "selected": false },
+                  { "value": "kabaddi", "type": "genre", "selected": false },
+                  { "value": "hockey", "type": "genre", "selected": false },
+                  { "value": "boxing", "type": "genre", "selected": false },
+                  { "value": "entertainment", "type": "genre", "selected": false },
+                  { "value": "religious", "type": "genre", "selected": false },
+                  { "value": "sport", "type": "genre", "selected": false },
+
+
+                  { "value": "Hotstar", "type": "partner", "selected": false },
+                  { "value": "Amazon Prime Video", "type": "partner", "selected": false },
+                  { "value": "Netflix", "type": "partner", "selected": false },
+                  { "value": "Sony LIV", "type": "partner", "selected": false },
+                  { "value": "ZEE5", "type": "partner", "selected": false },
+                  { "value": "JioCinema", "type": "partner", "selected": false },
+                  { "value": "Aha", "type": "partner", "selected": false },
+                  { "value": "Sun NXT", "type": "partner", "selected": false },
+                  { "value": "Eros Now", "type": "partner", "selected": false },
+                  { "value": "MX Player", "type": "partner", "selected": false }
+              ]
 }

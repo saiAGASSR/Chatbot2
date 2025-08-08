@@ -107,43 +107,53 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
         <img
         src={item.imgurl}
         alt={item.contentname}
-        className="w-full h-full object-contain"
+        className="w-full h-full object-cover"
         />
-    
-      <div className="absolute bottom-2.4 right-2 flex gap-2 z-10 ">
-        <Tooltip title={'Add To WatchList'} >
-        
-        <button onClick={(e) => {
-         e.preventDefault();
-         handleAddToWatchlist(item)
-        }
-        } className=" p-1 rounded-full shadow">
-          { (watchlistItems.filter(i=> (i.contentid == item.contentid))[0].inWatchlist) ? (
-              <MdDone  className="text-white w-6 h-6" />
-            ) : (
-              <FaPlus  className="text-white w-6 h-6 hover:text-yellow-400" />
-            )}        
-        </button>
-        </Tooltip>
 
-        <Tooltip title={'Show similar to this'} >
+      <div className='flex'>
+        {/* 1 st div */}
+          <div className="p-2 w-[80%]">
+            <h3 className="text-sm text-white font-medium font-sans">{item.contentname}</h3>
+          </div>
 
-        <button onClick={(e) => {
-         e.preventDefault();
-         handleSimilarContent(item.contentid)
-        }
-        } className=" p-1 rounded-full shadow">
-            <FaMagic  className="text-white w-6 h-6 hover:text-yellow-400"/>
-        </button>
-        </Tooltip >
+          {/* 2nd Div  */}
+            <div className="bottom-2.4 right-2 flex gap-2">
+              <Tooltip title={'Add To WatchList'} >
+              
+              <button onClick={(e) => {
+              e.preventDefault();
+              handleAddToWatchlist(item)
+              }
+              } className=" p-1 rounded-full shadow">
+                { (watchlistItems.filter(i=> (i.contentid == item.contentid))[0].inWatchlist) ? (
+                    <MdDone  className="text-white w-6 h-6" />
+                  ) : (
+                    <FaPlus  className="text-white w-6 h-6 hover:text-yellow-400" />
+                  )}        
+              </button>
+              </Tooltip>
 
+              <Tooltip title={'Show similar to this'} >
+
+              <button onClick={(e) => {
+              e.preventDefault();
+              handleSimilarContent(item.contentid)
+              }
+              } className=" p-1 rounded-full shadow">
+                  <FaMagic  className="text-white w-6 h-6 hover:text-yellow-400"/>
+              </button>
+              </Tooltip >
+
+
+
+            </div>
 
 
       </div>
+    
 
-        <div className="p-2">
-        <h3 className="text-sm text-white font-medium font-sans">{item.contentname}</h3>
-        </div>
+
+
       </div>
       </div>
       </a>

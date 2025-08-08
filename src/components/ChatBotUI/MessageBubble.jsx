@@ -67,7 +67,7 @@ export const MessageBubble = ({ from, text , lastMessage }) => {
                   // textAlign="center"
                   onLetterAnimationComplete={handleAnimationComplete}
       />) :
-           ( <span>{text}</span>)
+           ( <span className='break-normal whitespace-normal'>{text}</span>)
         }
       </div>
 
