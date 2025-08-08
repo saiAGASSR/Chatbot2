@@ -137,7 +137,7 @@ const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat , isTest 
                 
                         <div className='ml-2'>
 
-                            <p className="text-xs text-gray-500 font-mono">v1.0.0</p>
+                            <p className="text-xs text-gray-500 font-mono">v1.2</p>
 
                         </div>
                     </Tooltip>

@@ -8,6 +8,7 @@ import { memo, useEffect, useRef, useState } from 'react';
 import Carousel from '@/blocks/Components/Carousel/Carousel';
 import BrowseFilters from './BrowseFilters';
 import filtersConfig from './../../../filters.json';
+import UserFeedback from './UserFeedback';
 
   const MessageList = memo(function MessageList ({ messages, isTyping, messagesEndRef, sendMessage ,messagesLength , handleSimilarContent}) {
   const renderedCount = useRef(null); 
@@ -54,6 +55,7 @@ import filtersConfig from './../../../filters.json';
             {msg.carousel_results && 
               <CarouselComponent items={msg.carousel_results} handleSimilarContent={handleSimilarContent} />
             }
+            {msg.carousel_results && <UserFeedback />}
             {msg.searchSuggestionsResponse && <div><p className="text-sm font-bold text-white dark:text-white max-w-[90%]  ml-5 mt-5">{msg.searchSuggestionsResponse}</p></div> }
 
             {/* Suggestions */}
