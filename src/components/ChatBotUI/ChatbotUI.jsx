@@ -192,13 +192,19 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
       }
   
   const sendMessage = useMemo(()=>{
-    return async (messageText) => {
+    return async (messageText , fancy = null ) => {
     // console.log("checking sendMessage Cache using useMemo - input value is ",input);
     console.log("checking sendMessage Cache using useMemo - messageText value is ",messageText);
 
+    let newMessage;
 
-    // Add user message
-    const newMessage = { from: 'user', text: messageText };
+    if(fancy){
+      newMessage = {from :'user', text : fancy }
+    } else{
+
+      newMessage = { from: 'user', text: messageText };
+
+    }
     setMessages((prev) => [...prev, newMessage]);
 
     // Set bot typing animation
@@ -322,7 +328,9 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
   }, [sessionId,userId]);
 
   useEffect(() => {
+
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+
   }, [messages, isTyping]);
 
   return (

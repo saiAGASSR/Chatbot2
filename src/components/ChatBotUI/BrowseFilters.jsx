@@ -71,14 +71,14 @@ const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
         selectedLanguageArray.push(item.value)
     })
 
-    const selectedLanguages = selectedLanguageArray.join(" ");
+    const selectedLanguages = selectedLanguageArray.join(" and ");
 
     let selectedGenreArray = []; 
     selectedGenreOptions.map(item=>{
         selectedGenreArray.push(item.value)
     })
 
-    const selectedGenres = selectedGenreArray.join(" ");
+    const selectedGenres = selectedGenreArray.join(" and ");
 
     let selectedPartnersArray = [];
     selectedPartnerOptions.forEach(element => {
@@ -87,10 +87,12 @@ const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
         
     });
 
-    const selectedPartners = selectedPartnersArray.join(" ")
+    const selectedPartners = selectedPartnersArray.join(" and ")
     
 
     let contentType;
+    let fancyQuery = 'Awesome choice ';
+    let ott = 'Awesome choice! You’re into   in English and Hindi '
 
     if(title == 'Browse Movies'){
         contentType = 'movie'
@@ -104,9 +106,25 @@ const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
     
     let finalQuery;
     finalQuery = contentType + " " + selectedLanguages +  " " + selectedGenres + " " + selectedPartners
+    
+    if(selectedGenreArray.length != 0){
+
+        fancyQuery =   fancyQuery + " " + ` in ${selectedGenres} ` 
+    }
+    if(selectedLanguageArray.length != 0){
+
+        fancyQuery = fancyQuery + "movies" + " " +  `in ${selectedLanguages}` +  " "
+    }
+
+    if(selectedPartnersArray.length != 0){
+        fancyQuery +=  " " +  `and specific ${selectedPartners} partners` + " ";
+    }
+
+    fancyQuery += `— give me a sec while I find the best picks for you.`;
 
     console.log("finalQuery",finalQuery);
-    sendMessage(finalQuery)
+    const finalTrimmedQuery = finalQuery.trim();
+    sendMessage(finalTrimmedQuery , fancyQuery)
     setBrowseButtonsClicked(false);
 
     }

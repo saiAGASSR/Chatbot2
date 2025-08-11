@@ -117,5 +117,14 @@
                   { "value": "Sun NXT", "type": "partner", "selected": false },
                   { "value": "Eros Now", "type": "partner", "selected": false },
                   { "value": "MX Player", "type": "partner", "selected": false }
-              ]
+              ],
+    "fancy_queries" : 
+    
+                    [
+                        "Excellent choice! Mystery movies in English from our Amazon Prime Video partners — hang tight while I dig up the most thrilling picks for you…",
+                        "Great pick! Let’s dive into English mystery movies from Amazon Prime Video partners — give me a moment to uncover the best ones for you.",
+                        "Mystery lovers, rejoice! English titles from Amazon Prime Video partners coming right up — I’m finding the most gripping ones for you now.",
+                        "Fantastic choice! I’m tracking down the finest English mystery films from our Amazon Prime Video collection — this will only take a moment.",
+                        "On it! English mystery movies from Amazon Prime Video partners — preparing your top picks right now."
+                    ]
 }
