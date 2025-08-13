@@ -5,16 +5,19 @@ import QuickPrompts from './QuickPrompts';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import filtersConfig from './../../../filters.json';
 
 
 const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
     const [selectedType , setSelectedType] = useState('language');
     const [showAlert,setShowAlert] = useState(false);
 
-
+    const fancyArray = filtersConfig["fancy_queries"]
+    console.log("🚀 ~ BrowseFilters ~ fancyArray:", fancyArray)
+    
 
     const selectedBgColor = 'bg-gradient-to-br from-white via-blue-50 to-blue-100 '
-    const browseButtonsStyling = ' px-4 py-2 w-fit text-xl font-bold  tracking-tight text-gray-900 md:text-xl lg:text-2xl dark:text-white rounded-lg'
+    const browseButtonsStyling = ' px-4 py-2 w-fit text-xl font-bold  tracking-tight text-gray-900 md:text-xl lg:text-xl dark:text-white rounded-lg'
     const values = data;
     values.showPartners;
 
@@ -56,102 +59,127 @@ const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
 
     
     const handleSubmit = ()=>{
+            console.log("handle submit called");
+            
 
-    let languageLimit= selectedLanguageOptionsLeangth >= 5;
-    let genresLimit= selectedGenreOptionsLength >= 5;
-    let partnersLimit= selectedPartnerOptionsLength >= 5;
+            let languageLimit= selectedLanguageOptionsLeangth >= 5;
+            let genresLimit= selectedGenreOptionsLength >= 5;
+            let partnersLimit= selectedPartnerOptionsLength >= 5;
 
-    if((languageLimit || genresLimit || partnersLimit ))  {
-        setShowAlert(true);
-        return;
-    };
+            if((languageLimit || genresLimit || partnersLimit ))  {
+            setShowAlert(true);
+            return;
+            };
 
-    let selectedLanguageArray = []; 
-    selectedLanguageOptions.map(item=>{
-        selectedLanguageArray.push(item.value)
-    })
+            let selectedLanguageArray = []; 
+            selectedLanguageOptions.map(item=>{
+            selectedLanguageArray.push(item.value)
+            })
 
-    const selectedLanguages = selectedLanguageArray.join(" and ");
+            const selectedLanguages = selectedLanguageArray.join(" and ");
 
-    let selectedGenreArray = []; 
-    selectedGenreOptions.map(item=>{
-        selectedGenreArray.push(item.value)
-    })
+            let selectedGenreArray = []; 
+            selectedGenreOptions.map(item=>{
+            selectedGenreArray.push(item.value)
+            })
 
-    const selectedGenres = selectedGenreArray.join(" and ");
+            const selectedGenres = selectedGenreArray.join(" and ");
 
-    let selectedPartnersArray = [];
-    selectedPartnerOptions.forEach(element => {
+            let selectedPartnersArray = [];
+            selectedPartnerOptions.forEach(element => {
 
-        selectedPartnersArray.push(element.value)
-        
-    });
+            selectedPartnersArray.push(element.value)
 
-    const selectedPartners = selectedPartnersArray.join(" and ")
+            });
+
+            const selectedPartners = selectedPartnersArray.join(" and ")
+
+            console.log("submit from filters");
+            
+            let contentType;
+            
+            console.log("");
+            
+            let randomFancyText = fancyArray[Math.floor((Math.random() * 4))]
+            console.log("🚀 ~ handleSubmit ~ randomFancyText:", randomFancyText)
+            
+
+            
+            let fancyQuery = 'Awesome choice ';
+            let ott = 'Awesome choice! You’re into   in English and Hindi '
+
+            if(title == 'Browse Movies'){
+            contentType = 'movie'
+            }
+            if(title == 'Browse TvSeries'){
+            contentType = 'TvSeries'
+            }
+            if(title == 'Browse Live'){
+            contentType = 'Live'
+            }
+
+            let finalQuery;
+            finalQuery = contentType + " " + selectedLanguages +  " " + selectedGenres + " " + selectedPartners
+
+            if(selectedGenreArray.length != 0){
+
+            fancyQuery =   fancyQuery + " " + ` in ${selectedGenres} ` 
+            }
+            if(selectedLanguageArray.length != 0){
+
+            fancyQuery = fancyQuery + "movies" + " " +  `in ${selectedLanguages}` +  " "
+            }
+
+            if(selectedPartnersArray.length != 0){
+            fancyQuery +=  " " +  `and specific ${selectedPartners} partners` + " ";
+            }
+
+            fancyQuery += `— give me a sec while I find the best picks for you.`;
+            console.log("replacedString",randomFancyText.replace("Mystery" , selectedGenres));
+            console.log("replacedString",randomFancyText.replace("English" , selectedLanguages));
+            console.log("replacedString",randomFancyText.replace("Amazon Prime Video" , selectedPartners));
+            console.log("replacedString",randomFancyText.replace("movies" , contentType));
+            console.log("replacedString final",randomFancyText);
+            console.log("replacedString final",randomFancyText.replace("movie",contentType).replace("Mystery",selectedGenres).replace("English",selectedLanguages).replace("Amazon Prime Video",selectedPartners));
+            
+            let Fancygenre ;
+            if(selectedGenreArray.length > 0 ){
+                Fancygenre = randomFancyText.replace("Mystery",selectedGenres)
+            }
+            else{
+                Fancygenre = randomFancyText.replace("Mystery","")
+            }
+
+            let fancyLanguage;
+            if(selectedLanguageArray.length > 0){
+                fancyLanguage = Fancygenre.replace("English",selectedLanguages)
+            }else{
+                fancyLanguage = Fancygenre.replace("English","")
+            }
+
+            
+
+            let fancypartner;
+            if(selectedPartnersArray.length > 0){
+                fancypartner = fancyLanguage.replace("from  Amazon Prime Video partner",` from  ${selectedPartners}`)
+            }else{
+                fancypartner = fancyLanguage.replace("from  Amazon Prime Video partner", "");
+            }
+
+            let finalfancytest = fancypartner.replace("movies",contentType)
+
+            let finalFancyReplacedQuery = randomFancyText.replace("movie",contentType).replace("Mystery",selectedGenres).replace("English",selectedLanguages).replace("from  Amazon Prime Video partners",selectedPartners);
+            
+
+            console.log("finalQuery",finalQuery);
+            console.log("finalfancytest",finalfancytest);
+            const finalTrimmedQuery = finalQuery.trim();
+            sendMessage(finalTrimmedQuery , finalfancytest)
+            setBrowseButtonsClicked(false);
+
+    }
+
     
-
-    let contentType;
-    let fancyQuery = 'Awesome choice ';
-    let ott = 'Awesome choice! You’re into   in English and Hindi '
-
-    if(title == 'Browse Movies'){
-        contentType = 'movie'
-    }
-    if(title == 'Browse TvSeries'){
-        contentType = 'TvSeries'
-    }
-    if(title == 'Browse Live'){
-        contentType = 'Live'
-    }
-    
-    let finalQuery;
-    finalQuery = contentType + " " + selectedLanguages +  " " + selectedGenres + " " + selectedPartners
-    
-    if(selectedGenreArray.length != 0){
-
-        fancyQuery =   fancyQuery + " " + ` in ${selectedGenres} ` 
-    }
-    if(selectedLanguageArray.length != 0){
-
-        fancyQuery = fancyQuery + "movies" + " " +  `in ${selectedLanguages}` +  " "
-    }
-
-    if(selectedPartnersArray.length != 0){
-        fancyQuery +=  " " +  `and specific ${selectedPartners} partners` + " ";
-    }
-
-    fancyQuery += `— give me a sec while I find the best picks for you.`;
-
-    console.log("finalQuery",finalQuery);
-    const finalTrimmedQuery = finalQuery.trim();
-    sendMessage(finalTrimmedQuery , fancyQuery)
-    setBrowseButtonsClicked(false);
-
-    }
-
-    const items = [
-  "Action",
-  "Comedy",
-  "Drama",
-  "Thriller",
-  "Horror",
-  "Romance",
-  "Sci-Fi",
-  "Fantasy",
-  "Mystery",
-  "Adventure",
-  "Crime",
-  "Documentary",
-  "Animation",
-  "Family",
-  "Musical",
-  "War",
-  "Western",
-  "Biography",
-  "History",
-  "Sport"
-];
-
 
 
     
@@ -190,7 +218,7 @@ const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
 
 
     return(
-        <div className="absolute bottom-0 flex flex-col    bg-gray-950 w-[99%] m-1 z-[50] left-0  gap-5">
+        <div className="absolute bottom-0 flex flex-col    bg-gray-950 w-[99%] m-1 z-[50] left-0  gap-5 rounded-lg">
                 {   showAlert && 
                     <div className='absolute top-1 left-[30%] w-[50%]'>
                         <Alert severity="warning" onClose={() => {setShowAlert(false)}}>
@@ -199,10 +227,10 @@ const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
                     </div>
                 }
 
-                <div className="mt-4 ml-5 flex items-center">
+                <div className="mt-3 ml-5 flex items-center">
                         <div className='w-full '>
                         
-                            <h1 className="text-2xl font-bold leading-none tracking-tight text-white md:text-5xl lg:text-3xl dark:text-white">{title}</h1>
+                            <h1 className="text-xl font-bold leading-none tracking-tight text-white md:text-2xl lg:text-2xl dark:text-white">{title}</h1>
 
 
                         </div>
@@ -213,7 +241,7 @@ const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
                 </div>
 
              
-                <div className="mt-4 ml-5 flex gap-5">
+                <div className="ml-2 flex gap-5">
 
                     <button className={`${browseButtonsStyling}  ${selectedType == 'language' ? 'text-green-700' : 'text-white'}`} onClick={()=>setSelectedType('language')}>Language</button>
                     <button className={`${browseButtonsStyling}  ${selectedType == 'genre' ? 'text-green-700' :'text-white'}`} onClick={()=>setSelectedType('genre')}>Genre</button>
@@ -223,10 +251,10 @@ const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
 
                 </div>
 
-                <div className='flex h-50 overflow-y-auto no-scrollbar'>
+                <div className='flex h-55 overflow-y-auto no-scrollbar'>
 
                 
-                    <QuickPrompts  itemss={filtersBySelectedType} changeSelection={handleSelectedFilters}/>
+                    <QuickPrompts  itemss={filtersBySelectedType} changeSelection={handleSelectedFilters} />
 
 
 
@@ -240,7 +268,7 @@ const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
                 <div className="w-full  p-3 flex justify-center bg-black">
                     
 
-                    <button className={`text-xl font-semibold w-[90%] tracking-tight text-gray-900 md:text-2xl lg:text-2xl dark:text-white bg-gray-950 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full `} onClick={handleSubmit}>Submit</button>
+                    <button className={`text-xl font-semibold w-[60%] tracking-tight text-gray-900 md:text-2xl lg:text-xl dark:text-white bg-gray-950 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full `} onClick={handleSubmit}>Submit</button>
 
 
                 </div>

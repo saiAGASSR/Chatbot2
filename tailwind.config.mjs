@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+/** @type {import('material-tailwind/react').mtConfig } */
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -16,5 +17,5 @@ export default {
     },
     },
   },
-  plugins: [],
+  plugins: [mtConfig],
 };

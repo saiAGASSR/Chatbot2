@@ -23,18 +23,21 @@
                         { "value": "Music", "type": "genre", "selected": false },
                         { "value": "Action", "type": "genre", "selected": false },
                         { "value": "Thriller", "type": "genre", "selected": false },
+                        { "value": "Romance", "type": "genre", "selected": false },
+                        { "value": "Family", "type": "genre", "selected": false },
+                        { "value": "Crime", "type": "genre", "selected": false },
+                        { "value": "Devotional", "type": "genre", "selected": false },
+                        { "value": "History", "type": "genre", "selected": false },
 
 
-                        { "value": "Hotstar", "type": "partner", "selected": false },
-                        { "value": "Amazon Prime Video", "type": "partner", "selected": false },
-                        { "value": "Netflix", "type": "partner", "selected": false },
-                        { "value": "Sony LIV", "type": "partner", "selected": false },
-                        { "value": "ZEE5", "type": "partner", "selected": false },
-                        { "value": "JioCinema", "type": "partner", "selected": false },
-                        { "value": "Aha", "type": "partner", "selected": false },
-                        { "value": "Sun NXT", "type": "partner", "selected": false },
-                        { "value": "Eros Now", "type": "partner", "selected": false },
-                        { "value": "MX Player", "type": "partner", "selected": false }
+
+                  { "value": "Hotstar", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/hotstar-network-1739525832770.png"},
+                  { "value": "Sony LIV", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/sonyliv-network-1697115578150.jpeg"},
+                  { "value": "ZEE5", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/zee5-network-1749351564748.png"},
+                  { "value": "Sun NXT", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/sunnxt-network-1726572453923.png"},
+                  { "value": "MX Player", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/amazon-mx-player-network-1748353023034.png"},
+                  { "value": "Manorama Max", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/manorama-max-network-1697115517148.jpeg"}
+
 
                     ],
 
@@ -52,31 +55,45 @@
                         { "value": "Gujarati", "type": "language", "selected": false },
 
 
-                        { "value": "actioncomedy", "type": "genre", "selected": false },
-                        { "value": "serials", "type": "genre", "selected": false },
-                        { "value": "biographical", "type": "genre", "selected": false },
-                        { "value": "drama", "type": "genre", "selected": false },
-                        { "value": "crime", "type": "genre", "selected": false },
-                        { "value": "korean", "type": "genre", "selected": false },
-                        { "value": "entertainment", "type": "genre", "selected": false },
-                        { "value": "fantasy", "type": "genre", "selected": false },
-                        { "value": "religious", "type": "genre", "selected": false },
-                        { "value": "neo-noir", "type": "genre", "selected": false },
-                        { "value": "anime", "type": "genre", "selected": false },
-                        { "value": "war", "type": "genre", "selected": false },
-                        { "value": "gameshow", "type": "genre", "selected": false },
+
+                        { "value": "Actioncomedy", "type": "genre", "selected": false },
+                        { "value": "Serials", "type": "genre", "selected": false },
+                        { "value": "Biographical", "type": "genre", "selected": false },
+                        { "value": "Drama", "type": "genre", "selected": false },
+                        { "value": "Crime", "type": "genre", "selected": false },
+                        { "value": "Korean", "type": "genre", "selected": false },
+                        { "value": "Entertainment", "type": "genre", "selected": false },
+                        { "value": "Fantasy", "type": "genre", "selected": false },
+                        { "value": "Religious", "type": "genre", "selected": false },
+                        { "value": "Neo-noir", "type": "genre", "selected": false },
+                        { "value": "Anime", "type": "genre", "selected": false },
+                        { "value": "War", "type": "genre", "selected": false },
+                        { "value": "Gameshow", "type": "genre", "selected": false },
+                        { "value": "Reality", "type": "genre", "selected": false },
+                        { "value": "Event", "type": "genre", "selected": false },
+                        { "value": "Shorts", "type": "genre", "selected": false },
+                        { "value": "Food", "type": "genre", "selected": false },
+                        { "value": "Celebrities", "type": "genre", "selected": false },
+                        { "value": "Kids", "type": "genre", "selected": false },
+                        { "value": "Animation", "type": "genre", "selected": false },
+                        { "value": "Musical", "type": "genre", "selected": false },
+                        { "value": "Sports", "type": "genre", "selected": false },
+                        { "value": "Action", "type": "genre", "selected": false },
+                        { "value": "Romance", "type": "genre", "selected": false },
+                        { "value": "Comedy", "type": "genre", "selected": false },
+                        { "value": "Family", "type": "genre", "selected": false },
 
 
-                        { "value": "Hotstar", "type": "partner", "selected": false },
-                        { "value": "Amazon Prime Video", "type": "partner", "selected": false },
-                        { "value": "Netflix", "type": "partner", "selected": false },
-                        { "value": "Sony LIV", "type": "partner", "selected": false },
-                        { "value": "ZEE5", "type": "partner", "selected": false },
-                        { "value": "JioCinema", "type": "partner", "selected": false },
-                        { "value": "Aha", "type": "partner", "selected": false },
-                        { "value": "Sun NXT", "type": "partner", "selected": false },
-                        { "value": "Eros Now", "type": "partner", "selected": false },
-                        { "value": "MX Player", "type": "partner", "selected": false }
+
+
+
+                  { "value": "Hotstar", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/hotstar-network-1739525832770.png"},
+                  { "value": "Sony LIV", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/sonyliv-network-1697115578150.jpeg"},
+                  { "value": "ZEE5", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/zee5-network-1749351564748.png"},
+                  { "value": "Sun NXT", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/sunnxt-network-1726572453923.png"},
+                  { "value": "MX Player", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/amazon-mx-player-network-1748353023034.png"},
+                  { "value": "Manorama Max", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/manorama-max-network-1697115517148.jpeg"}
+
                     ],
 
 
@@ -94,37 +111,51 @@
                   { "value": "Gujarati", "type": "language", "selected": false },
 
 
-                  { "value": "news", "type": "genre", "selected": false },
-                  { "value": "spiritual", "type": "genre", "selected": false },
-                  { "value": "kids", "type": "genre", "selected": false },
-                  { "value": "musical", "type": "genre", "selected": false },
-                  { "value": "badminton", "type": "genre", "selected": false },
-                  { "value": "kabaddi", "type": "genre", "selected": false },
-                  { "value": "hockey", "type": "genre", "selected": false },
-                  { "value": "boxing", "type": "genre", "selected": false },
-                  { "value": "entertainment", "type": "genre", "selected": false },
-                  { "value": "religious", "type": "genre", "selected": false },
-                  { "value": "sport", "type": "genre", "selected": false },
+
+                { "value": "entertainment", "type": "genre", "selected": false },
+                { "value": "news", "type": "genre", "selected": false },
+                { "value": "updates", "type": "genre", "selected": false },
+                { "value": "headlines", "type": "genre", "selected": false },
+                { "value": "devotional", "type": "genre", "selected": false },
+                { "value": "music", "type": "genre", "selected": false },
+                { "value": "religious", "type": "genre", "selected": false },
+                { "value": "lifestyle", "type": "genre", "selected": false },
+                { "value": "asian", "type": "genre", "selected": false },
+                { "value": "sports", "type": "genre", "selected": false },
+                { "value": "musical", "type": "genre", "selected": false },
+                { "value": "travel", "type": "genre", "selected": false },
+                { "value": "infotainment", "type": "genre", "selected": false },
+                { "value": "currentaffairs", "type": "genre", "selected": false },
+                { "value": "songs", "type": "genre", "selected": false },
+                { "value": "nature", "type": "genre", "selected": false },
+                { "value": "politics", "type": "genre", "selected": false },
+                { "value": "blogs", "type": "genre", "selected": false },
+                { "value": "spiritual", "type": "genre", "selected": false },
+                { "value": "kids", "type": "genre", "selected": false },
+                { "value": "badminton", "type": "genre", "selected": false },
+                { "value": "kabaddi", "type": "genre", "selected": false },
+                { "value": "hockey", "type": "genre", "selected": false },
+                { "value": "boxing", "type": "genre", "selected": false },
+                { "value": "sport", "type": "genre", "selected": false },
 
 
-                  { "value": "Hotstar", "type": "partner", "selected": false },
-                  { "value": "Amazon Prime Video", "type": "partner", "selected": false },
-                  { "value": "Netflix", "type": "partner", "selected": false },
-                  { "value": "Sony LIV", "type": "partner", "selected": false },
-                  { "value": "ZEE5", "type": "partner", "selected": false },
-                  { "value": "JioCinema", "type": "partner", "selected": false },
-                  { "value": "Aha", "type": "partner", "selected": false },
-                  { "value": "Sun NXT", "type": "partner", "selected": false },
-                  { "value": "Eros Now", "type": "partner", "selected": false },
-                  { "value": "MX Player", "type": "partner", "selected": false }
+
+
+                  { "value": "Hotstar", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/hotstar-network-1739525832770.png"},
+                  { "value": "Sony LIV", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/sonyliv-network-1697115578150.jpeg"},
+                  { "value": "ZEE5", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/zee5-network-1749351564748.png"},
+                  { "value": "Sun NXT", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/sunnxt-network-1726572453923.png"},
+                  { "value": "MX Player", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/amazon-mx-player-network-1748353023034.png"},
+                  { "value": "Manorama Max", "type": "partner", "selected": false ,"src":"https://d1m9cbe6bfhh6i.cloudfront.net/content/patners/network/images/manorama-max-network-1697115517148.jpeg"}
+
               ],
     "fancy_queries" : 
     
                     [
-                        "Excellent choice! Mystery movies in English from our Amazon Prime Video partners — hang tight while I dig up the most thrilling picks for you…",
-                        "Great pick! Let’s dive into English mystery movies from Amazon Prime Video partners — give me a moment to uncover the best ones for you.",
-                        "Mystery lovers, rejoice! English titles from Amazon Prime Video partners coming right up — I’m finding the most gripping ones for you now.",
-                        "Fantastic choice! I’m tracking down the finest English mystery films from our Amazon Prime Video collection — this will only take a moment.",
-                        "On it! English mystery movies from Amazon Prime Video partners — preparing your top picks right now."
+                        "Impressive selection! You’ve got a flair for Mystery movies in English from  Amazon Prime Video partner",
+                        "That’s a power-packed preference —   Mystery English movies from  Amazon Prime Video partner.",
+                        "Sharp eye! Mystery  English movies from  Amazon Prime Video partner coming right up",
+                        "Fantastic choice! I’m tracking down the finest English Mystery movies from  Amazon Prime Video partner",
+                        "That’s a cinematic-threat! English Mystery movies from  Amazon Prime Video partner — preparing your top picks right now."
                     ]
 }

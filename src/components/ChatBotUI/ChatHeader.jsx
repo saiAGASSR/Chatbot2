@@ -82,7 +82,7 @@ const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat , isTest 
                                 onClick={() => setShowModal(true)}
                             >
 
-                                    <FontAwesomeIcon icon={faCircleInfo} beat className="text-black-600 text-xl" />
+                                    <FontAwesomeIcon icon={faCircleInfo} beat className="text-black-600 text-sm" />
 
                             </button>
 
@@ -137,7 +137,7 @@ const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat , isTest 
                 
                         <div className='ml-2'>
 
-                            <p className="text-xs text-gray-500 font-mono">v1.2</p>
+                            <p className="text-xs text-gray-500 font-mono">v1.3</p>
 
                         </div>
                     </Tooltip>

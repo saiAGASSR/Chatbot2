@@ -6,14 +6,14 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 
 
-export const MessageBubble = ({ from, text , lastMessage }) => {
+export const MessageBubble = ({ from, text , lastMessage , index }) => {
   const handleAnimationComplete = () => {
   console.log('All letters have animated! lastMessage messagebox');
 };
   return (
 
           
-    <div className={`flex  ${from === 'user' ? 'justify-end mt-10' : 'justify-start'}`}>
+    <div className={`flex  ${index == 0 ? '' : 'mt-9'} ${from === 'user' ? 'justify-end ' : 'justify-start'}`}>
       {lastMessage && console.log("last message ? messagebox",lastMessage)}
       {from && console.log("from ? messagebox",from)}
       {text && console.log("text  ?messagebox " ,text)}

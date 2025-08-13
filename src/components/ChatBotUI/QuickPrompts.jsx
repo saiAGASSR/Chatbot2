@@ -1,6 +1,10 @@
 import React from 'react';
+import QuickPromptsPartners from './QuickPromptsPartners';
 
 const QuickPrompts = ({itemss , changeSelection}) => {
+
+  console.log(itemss,"items in quick Prompts");
+  
   // const items = [
   //   "Action", "Thriller", "Sci-Fi", "Adventure",
   //   "Comedy", "Horror", "Fantasy", "Crime", 
@@ -14,11 +18,14 @@ const QuickPrompts = ({itemss , changeSelection}) => {
 
 
   const selectedItems = itemss.filter(item=>item.selected);
-  const selectedItemsArrey = [];
+  const partners = itemss.filter(item=>item.type == 'partner');
+  console.log("partners",partners);
+  
+  const selectedItemsArray = [];
   selectedItems.forEach(element => {
-    selectedItemsArrey.push(element.value)
+    selectedItemsArray.push(element.value)
   });
-  console.log("selectedItems",selectedItemsArrey);
+  console.log("selectedItems",selectedItemsArray);
   
   
 
@@ -26,6 +33,9 @@ const QuickPrompts = ({itemss , changeSelection}) => {
   const rows = [];
   for (let i = 0; i < items.length; i += 4) {
     rows.push(items.slice(i, i + 4));
+  }
+  if(partners.length > 0){
+    return <QuickPromptsPartners partners={partners} changeSelection={changeSelection}/>
   }
 
   return (
@@ -35,11 +45,11 @@ const QuickPrompts = ({itemss , changeSelection}) => {
       <div className="overflow-x-auto  overflow-y-auto no-scroll">
         <div className="space-y-3 w-fit">
           {rows.map((row, rowIndex) => (
-            <div key={rowIndex} className="flex gap-3">
+            <div key={rowIndex} className="flex gap-3 ">
               {row.map((item, index) => (
                 <button
                   key={index}
-                  className={`bg-transparent border border-gray-500 rounded-lg px-4 py-2 ${ selectedItemsArrey.includes(item) ? 'text-black' : 'text-white'}  hover:bg-gray-800 transition-colors duration-200 whitespace-nowrap ${ selectedItemsArrey.includes(item) && selectedBgColor}`}
+                  className={`bg-transparent border border-gray-500 rounded-lg px-3 py-1.5 ${ selectedItemsArray.includes(item) ? 'text-black' : 'text-white'} text-sm xl:text-md hover:bg-gray-800 transition-colors duration-200 whitespace-nowrap ${ selectedItemsArray.includes(item) && selectedBgColor}`}
                   style={{ minWidth: 'fit-content' }}
                   onClick={()=>{changeSelection(item)}}
                 >

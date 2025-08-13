@@ -49,7 +49,7 @@ import UserFeedback from './UserFeedback';
 
             
             {/* Message Bubble */}
-            {msg.text && <MessageBubble from={msg.from} text={msg.text}  lastMessage={(messagesLength-1) === index}/>}
+            {msg.text && <MessageBubble from={msg.from} text={msg.text} index={index} lastMessage={(messagesLength-1) === index}/>}
 
             {/* Carousel Response */}
             {msg.carousel_results && 
@@ -59,7 +59,7 @@ import UserFeedback from './UserFeedback';
             {msg.searchSuggestionsResponse && <div><p className="text-sm font-bold text-white dark:text-white max-w-[90%]  ml-5 mt-5">{msg.searchSuggestionsResponse}</p></div> }
 
             {/* Suggestions */}
-            {msg.suggestions && <SuggestionButtons suggestions={msg.suggestions} istyping={isTyping} sendMessage={sendMessage}  />}
+            {(msg.suggestions && msg.suggestions.length > 0) && <SuggestionButtons suggestions={msg.suggestions} istyping={isTyping} sendMessage={sendMessage}  />}
 
             {console.log((index === 1),"explore more")}
             {console.log((index),"explore more")}

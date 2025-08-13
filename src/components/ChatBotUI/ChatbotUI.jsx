@@ -22,6 +22,7 @@ import movieSuggestions from '../../../genericFunctions/suggestions';
 
 export default function ChatbotUI({voiceInput , jwt , isTest}) {
   const [userId,setUserId] = useState(15)
+  const [userName,setUserName] = useState('Master');
   const [sessionId, setSessionId] = useState(null);
   const [projectId, setProjectId] = useState(null);
   const [apiKey, setApiKey] = useState(null);
@@ -36,7 +37,7 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
             
           
           <span className="font-bold text-base">
-            Hi Master ,  I am Reco bot 
+            {`Hello ${userName}`}
 
            
           </span>
@@ -139,7 +140,7 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
   };
   
   const handleSimilarContent = async (contentId)=>{
-
+    setIsTyping(true)
     const url = `https://alphaapi.myreco.in/v1/similar_content/${contentId}?user_id=${userId}`
     const config = {
             headers : {
@@ -150,7 +151,6 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
           }
 
     try {
-            setIsTyping(true)
             const response = await axios.get(url,config);
             console.log("response from similar",response.data);
             const botReply = await response.data ;
@@ -164,7 +164,7 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
               });
     } catch(error){
 
-      
+    setIsTyping(false)
     // Check if we have suggestions in the previous message and remove them
     setMessages((prev) => {
       const updated = [...prev];
@@ -304,6 +304,9 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
       if (!sessionId) return; // Prevent request if session ID is not available yet
       const botReply = await fetchBotResponse(`My user id is ${userId}` , true);
       console.log('initialBotReply',botReply);
+      if(botReply.userName){
+          setUserName(botReply.userName)
+      }
       
 
       setMessages((prev) => [
