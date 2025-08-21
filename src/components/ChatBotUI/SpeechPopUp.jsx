@@ -5,9 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import SplitText from "./SplitText";
 
+import { X } from 'lucide-react'; // for modern close icon
 
 
- const SpeechPopUp  =  memo(function ({handleReactMicClick}){
+ const SpeechPopUp  =  memo(function ({handleReactMicClick , handleGoogleMicClick , recording , listening }){
   const handleAnimationComplete = () => {
   console.log('All letters have animated!');
 };
@@ -30,6 +31,15 @@ import SplitText from "./SplitText";
             // className="absolute flex flex-col items-center justify-center  bg-black w-full h-full" 
             className="fixed w-full h-screen xl:w-1/2  top-0  flex flex-col items-center justify-center  z-50  bg-gradient-to-br from-white via-blue-50 to-blue-100 overflow-y-auto" 
             >
+
+
+            <div>
+                <button
+                    className="absolute top-10 right-10   text-red-400 rounded transition-all duration-300  hover:text-red-700  "
+                    onClick={ listening ? handleReactMicClick : handleGoogleMicClick} >
+                    <X className="w-5 h-5" />
+                </button>
+            </div>
 
             <div className="w-64 h-64">
             <DotLottieReact
@@ -74,7 +84,7 @@ import SplitText from "./SplitText";
             {/* {This is Mic} */}
             <div className="w-32 h-32 xl:w-64 h-64">
 
-                <button onClick={handleReactMicClick} className=''>
+                <button onClick={ listening ? handleReactMicClick : handleGoogleMicClick} className=''>
 
 
                 <DotLottieReact

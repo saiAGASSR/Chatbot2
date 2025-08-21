@@ -20,13 +20,12 @@ const  UserFeedback = ()=>{
     
 
 
-    return <div className="flex    w-[99%] ml-[2.5%]  h-10   text-white items-baseline
- ">
+    return <div className={`${isDisliked? 'mb-8 mr-10' : ''} flex    w-[99%] ml-[2.5%]  h-10   text-white items-baseline`}>
         
 
         <div className={`flex  w-full } items-baseline `}>
 
-                <div className=" w-[80%] xl:w-[60%]">
+                <div className={` w-[80%] xl:w-[60%]`}>
 
                     <p className="text-white text-base leading-relaxed    text-lg" >{!showFeedBack? 'Are these relevant for you ?' : `Thanks for your feedback .${isDisliked ? 'We will try to improve' : ''}`}  </p>
 

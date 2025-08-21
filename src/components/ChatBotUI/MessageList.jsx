@@ -42,7 +42,7 @@ import UserFeedback from './UserFeedback';
 
   return (
     
-    <div className="flex-1 w-max overflow-y-scroll no-scrollbar px-4 py-3 space-y-2  max-w-full  ">
+    <div className="w-max overflow-y-auto flex-1 no-scrollbar px-4 py-3 space-y-2  max-w-full max-h-full">
 
         {messages.map((msg, index) => (
           <div key={index} className={`flex-1 flex-col  space-y-2 ${msg.from === 'user' ? 'items-end' : 'items-start'} `}>

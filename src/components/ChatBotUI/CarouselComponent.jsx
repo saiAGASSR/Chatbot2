@@ -107,7 +107,7 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
         <img
         src={item.imgurl}
         alt={item.contentname}
-        className="w-full h-50 max-h-50 object-scale-down "
+        className="w-full h-50 max-h-50 object-scale-down rounded-2xl"
         />
 
       <div className='flex'>

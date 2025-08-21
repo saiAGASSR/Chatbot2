@@ -13,7 +13,7 @@ export const MessageBubble = ({ from, text , lastMessage , index }) => {
   return (
 
           
-    <div className={`flex  ${index == 0 ? '' : 'mt-9'} ${from === 'user' ? 'justify-end ' : 'justify-start'}`}>
+    <div className={`flex  ${index == 0 ? '' : 'mt-9'} ${from === 'user' ? 'justify-end ' : 'justify-start'} break-normal whitespace-normal`}>
       {lastMessage && console.log("last message ? messagebox",lastMessage)}
       {from && console.log("from ? messagebox",from)}
       {text && console.log("text  ?messagebox " ,text)}
@@ -45,17 +45,17 @@ export const MessageBubble = ({ from, text , lastMessage , index }) => {
   
 
       <div
-        className={`rounded-xl px-4 py-2 max-w-[90%] text-sm text-white font-semibold font-sans ${
+        className={`break-normal whitespace-normal rounded-xl px-4 py-2 max-w-[90%] text-sm text-white font-semibold font-sans ${
           from === 'user'
             ? '   shadow-lg'
             : '   '
         }`}
       >
         {
-          lastMessage && from === 'bot' ?
+          true && index !=0 && lastMessage && from === 'bot' ?
                 (<SplitText
                   text={text}
-                  // className="text-center"
+                  className="break-normal whitespace-normal"
                   delay={30}
                   duration={0.6}
                   // ease="power3.out"

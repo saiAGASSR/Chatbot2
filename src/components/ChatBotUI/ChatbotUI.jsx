@@ -41,7 +41,7 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
 
            
           </span>
-          <p className='ml-2'>&#129502;</p>
+          <span className='ml-2'>&#129502;</span>
           </div>
           <span className="text-sm text-white ">
             I can help you find movies, TV series, and live channels based on your preferences or searches.
@@ -367,7 +367,7 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="relative xl:w-1/2  w-full h-full   rounded-xl shadow-lg flex flex-col "
+            className="relative xl:w-1/2 lg:w-1/2  w-full h-full   rounded-xl shadow-lg flex flex-col overflow-y-auto"
             >
             
             
@@ -391,6 +391,7 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
               isTyping={isTyping}
               userInputFocus={userInputFocus}
               voiceInput={voiceInput}
+              jwt={jwt}
             />
 
 

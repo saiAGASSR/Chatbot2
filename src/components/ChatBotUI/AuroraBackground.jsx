@@ -5,7 +5,7 @@ export function AuroraBackground({ children }) {
   return (
     <>
       {/* Background Particles */}
-      <div className="absolute  w-[99.5%] h-full z-[-10] bg-black	">
+      <div className="absolute  w-full h-full    z-[-10] bg-black 	">
             <Aurora
                 colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
                 blend={0.5}
@@ -15,7 +15,7 @@ export function AuroraBackground({ children }) {
       </div>
 
       {/* Foreground Content */}
-      <div className="flex justify-center  w-[99.5%] h-full">
+      <div className="flex justify-center items-center  w-full h-full">
         {children}
       </div>
     </>
