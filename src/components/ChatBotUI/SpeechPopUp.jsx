@@ -29,7 +29,7 @@ import { X } from 'lucide-react'; // for modern close icon
             // className="absolute flex flex-col items-center justify-center  bg-linear-to-r from-gray-300 via-gray-500 to-gray-700 w-full h-full"
             // className="absolute flex flex-col items-center justify-center  bg-linear-to-r from-zinc-500 via-stone-600 to-zinc-900 w-full h-full"
             // className="absolute flex flex-col items-center justify-center  bg-black w-full h-full" 
-            className="fixed w-full h-screen xl:w-1/2  top-0  flex flex-col items-center justify-center  z-50  bg-gradient-to-br from-white via-blue-50 to-blue-100 overflow-y-auto" 
+            className="lg:absolute    fixed w-full h-full   top-0  flex flex-col items-center justify-center  z-50  rounded-xl bg-gradient-to-br from-white via-blue-50 to-blue-100 overflow-y-auto" 
             >
 
 

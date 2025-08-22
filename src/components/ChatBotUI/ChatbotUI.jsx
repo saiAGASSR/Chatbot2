@@ -84,7 +84,7 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
       };
       console.log("body if not initial url ",body)
     }
-    const url = initialUrl ? 'https://alphaapi.myreco.in/generate_suggestions' : 'https://alphaapi.myreco.in/chat'
+    const url = initialUrl ? 'https://alphaapi.myreco.in/chatbot/v1/generate-suggestions' : 'https://alphaapi.myreco.in/chatbot/v1/chat'
     // const url = initialUrl ? 'http://192.168.141.143:8000/generate_suggestions' : 'http://192.168.141.143:8000/chat'
   
     try {
@@ -103,8 +103,8 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
       
         if(response.data.status_code == 429) {
           return {
-            Bot_Response: response.data.message,
-            carousel_results : [],
+            message: response.data.message,
+            results : [],
             Search_Suggestions:[],
           }
         }
@@ -115,8 +115,8 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
 
         if(Object.keys(response.data).length === 0){
           return {
-            Bot_Response: "Empty Response from Bot",
-            carousel_results:[],
+            message: "Empty Response from Bot",
+            results:[],
             Search_Suggestions : []
           }
         }
@@ -132,8 +132,8 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
       }
 
       return {
-        Bot_Response: "Sorry, something went wrong.",
-        Carousel_Results: [],
+        message: "Sorry, something went wrong.",
+        results: [],
         Search_Suggestions: [],
       };
     }
@@ -141,7 +141,7 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
   
   const handleSimilarContent = async (contentId)=>{
     setIsTyping(true)
-    const url = `https://alphaapi.myreco.in/v1/similar_content/${contentId}?user_id=${userId}`
+    const url = `https://alphaapi.myreco.in/chatbot/v1/similar-content/${contentId}?user_id=${userId}`
     const config = {
             headers : {
               'Authorization' : `Bearer ${jwt}`,
@@ -160,7 +160,7 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
 
 
                 // Add the new bot message with carousel and suggestions (if any)
-                return [...updated, { from: 'bot', carousel_results: botReply.Carousel_Results, text: botReply.Bot_Response, suggestions: [] }];
+                return [...updated, { from: 'bot', carousel_results: botReply.results, text: botReply.message, suggestions: [] }];
               });
     } catch(error){
 
@@ -227,45 +227,14 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
 
 
       // Add the new bot message with carousel and suggestions (if any)
-      return [...updated, { from: 'bot', carousel_results: botReply.Carousel_Results, text: botReply.Bot_Response, suggestions: botReply.Search_Suggestions }];
+      return [...updated, { from: 'bot', carousel_results: botReply.results, text: botReply.message, suggestions: botReply.Search_Suggestions }];
     });
 
 
   }
     
   },[sessionId , userId])
-  // const  sendMessage = async (messageText) => {
-  //   if (!messageText) {
-  //     console.log("send message is empty so setting it input ",input);
-  //     console.log("checking sendMessage Cache using useMemo - input value is ",input);
-      
-  //     messageText == input;
-  //   }
 
-  //   // Add user message
-  //   const newMessage = { from: 'user', text: messageText };
-  //   setMessages((prev) => [...prev, newMessage]);
-  //   setInput(''); // Clear the input field
-
-  //   // Set bot typing animation
-  //   setIsTyping(true);
-
-  //   // Fetch bot reply (assuming this fetches the bot response)
-  //   const botReply = await fetchBotResponse(messageText);
-
-  //   setIsTyping(false);
-
-  //   // Check if we have suggestions in the previous message and remove them
-  //   setMessages((prev) => {
-  //     const updated = [...prev];
-
-
-  //     // Add the new bot message with carousel and suggestions (if any)
-  //     return [...updated, { from: 'bot', carousel_results: botReply.Carousel_Results, text: botReply.Bot_Response, suggestions: botReply.Search_Suggestions }];
-  //   });
-
-
-  // };
   useEffect(() => {
       setMessages((prevMessages)=>{
         const restart = [...prevMessages];
@@ -313,10 +282,10 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
         ...prev,
         {
           from: 'bot',
-          carousel_results: botReply.Carousel_Results,
-          text: botReply.Bot_Response,
-          suggestions: botReply.Search_Suggestions,
-          searchSuggestionsResponse : botReply.Bot_search_suggestion_response 
+          carousel_results: botReply.results,
+          text: botReply.message,
+          suggestions: botReply.suggestions,
+          searchSuggestionsResponse : botReply.suggestionMessage 
         }
       ]);
     };
@@ -347,11 +316,11 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            whileTap={{ scale: 5 }}
+            whileTap={{ scale: 2 }}
             transition={{ duration: 0.2 }}
             whileHover={{ scale: 1.5 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-4 right-4 bg-gradient-to-br from-blue-600 to-indigo-600 text-white p-3 rounded-full shadow-xl hover:from-blue-700 hover:to-indigo-700 z-50 "
+            className="fixed  bottom-4 right-4 bg-gradient-to-br from-blue-600 to-indigo-600 text-white p-3 rounded-full shadow-xl hover:from-blue-700 hover:to-indigo-700 z-50 "
           >
             💬
           </motion.button>
@@ -367,7 +336,7 @@ export default function ChatbotUI({voiceInput , jwt , isTest}) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="relative xl:w-1/2 lg:w-1/2  w-full h-full   rounded-xl shadow-lg flex flex-col overflow-y-auto"
+            className="relative lg:fixed  lg:right-0 lg:w-[30%] lg:h-[90%]   w-full h-full   rounded-xl shadow-lg flex flex-col"
             >
             
             

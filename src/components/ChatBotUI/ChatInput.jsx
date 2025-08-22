@@ -199,7 +199,7 @@ const startRecording = async () => {
 
       // 6. Google API endpoint and payload
       const url = `https://speech.googleapis.com/v1/speech:recognize?key=`;
-      const url2 = 'https://alphaapi.myreco.in/speech_to_text';
+      const url2 = 'https://alphaapi.myreco.in/chatbot/v1/speech-to-text';
 
       const googleClientdata = {
         config: {
@@ -309,7 +309,7 @@ const handleGoogleMicClick = useCallback(() => {
  return (
     <AnimatePresence >
       <motion.div 
-            className="bottom-0 w-full h-max rounded-xl px-2 flex flex-col items-center gap-2  ">
+            className=" w-full  rounded-xl px-2 flex flex-col items-center  ">
               {console.log("it is ChatInput rendered")}
               {console.log("input value in rendered chatInput",input)}
               {console.log(" ChatInput renderedCount",renderedCount.current)} 

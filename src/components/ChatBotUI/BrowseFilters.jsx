@@ -8,7 +8,7 @@ import Stack from '@mui/material/Stack';
 import filtersConfig from './../../../filters.json';
 
 
-const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
+const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage ,isTyping })=>{
     const [selectedType , setSelectedType] = useState('language');
     const [showAlert,setShowAlert] = useState(false);
 
@@ -55,9 +55,20 @@ const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
     console.log("selectedGenreOptions",selectedGenreOptions);
     
     console.log("options",options);
+    let contentType;
 
+    if(title == 'Browse Movies')
+        {
+        contentType = 'movies'
+        }
+        if(title == 'Browse TvSeries'){
+        contentType = 'tvSeries'
+        }
+        if(title == 'Browse Live'){
+        contentType = 'live'
+        }
 
-    
+        
     const handleSubmit = ()=>{
             console.log("handle submit called");
             
@@ -96,7 +107,6 @@ const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
 
             console.log("submit from filters");
             
-            let contentType;
             
             console.log("");
             
@@ -108,15 +118,6 @@ const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
             let fancyQuery = 'Awesome choice ';
             let ott = 'Awesome choice! You’re into   in English and Hindi '
 
-            if(title == 'Browse Movies'){
-            contentType = 'movie'
-            }
-            if(title == 'Browse TvSeries'){
-            contentType = 'TvSeries'
-            }
-            if(title == 'Browse Live'){
-            contentType = 'Live'
-            }
 
             let finalQuery;
             finalQuery = contentType + " " + selectedLanguages +  " " + selectedGenres + " " + selectedPartners
@@ -218,16 +219,16 @@ const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
 
 
     return(
-        <div className="absolute bottom-0 flex flex-col    bg-gray-950 w-[99%] m-1 z-[50] left-0  gap-5 rounded-lg">
+        <div className="absolute bottom-0  flex flex-col    bg-gray-950 w-full lg:h-max z-[50] left-0  gap-1 rounded-lg">
                 {   showAlert && 
-                    <div className='absolute top-1 left-[30%] w-[50%]'>
+                    <div className='w-max'>
                         <Alert severity="warning" onClose={() => {setShowAlert(false)}}>
                                 You have selected more that 5 options plaese select 5 or less that 5
                         </Alert>
                     </div>
                 }
 
-                <div className="mt-3 ml-5 flex items-center">
+                <div className="mt-3 ml-5 flex items-center h-max">
                         <div className='w-full '>
                         
                             <h1 className="text-xl font-bold leading-none tracking-tight text-white md:text-2xl lg:text-2xl dark:text-white">{title}</h1>
@@ -241,7 +242,7 @@ const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
                 </div>
 
              
-                <div className="ml-2 flex gap-5">
+                <div className="ml-2 flex gap-5 h-max">
 
                     <button className={`${browseButtonsStyling}  ${selectedType == 'language' ? 'text-green-700' : 'text-white'}`} onClick={()=>setSelectedType('language')}>Language</button>
                     <button className={`${browseButtonsStyling}  ${selectedType == 'genre' ? 'text-green-700' :'text-white'}`} onClick={()=>setSelectedType('genre')}>Genre</button>
@@ -265,10 +266,10 @@ const BrowseFilters = ({title , data ,setBrowseButtonsClicked ,sendMessage })=>{
 
                 
 
-                <div className="w-full  p-3 flex justify-center bg-black">
+                <div className="w-full  p-3 flex justify-center bg-grey-900">
                     
 
-                    <button className={`text-xl font-semibold w-[60%] tracking-tight text-gray-900 md:text-2xl lg:text-xl dark:text-white bg-gray-950 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full `} onClick={handleSubmit}>Submit</button>
+                    <button disabled={isTyping} className={`text-lg font-semibold  tracking-tight text-gray-900 md:text-2xl lg:text-lg dark:text-white bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full `} onClick={handleSubmit}>{`Lets Roll into ${contentType}`}</button>
 
 
                 </div>

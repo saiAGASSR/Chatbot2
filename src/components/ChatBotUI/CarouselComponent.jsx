@@ -26,7 +26,7 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
   const initialwatchListItems = []; 
   const contentIds = items.map(item=>{
       let obj = {};
-      obj['contentid'] = item.contentid;
+      obj['contentId'] = item.contentId;
       obj['inWatchlist'] = false;
       initialwatchListItems.push(obj);
     
@@ -42,9 +42,9 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
       const newItems = [...prev];
       const updated = newItems.map(i=>{
         console.log("i value watchlistItems i value ",i);
-        console.log("i value watchlistItems its contentid value",i[item.contentid]);
-        console.log("i value watchlistItems item.content id which is clicked",item.contentid);
-        if(i.contentid === item.contentid){
+        console.log("i value watchlistItems its contentId value",i[item.contentId]);
+        console.log("i value watchlistItems item.content id which is clicked",item.contentId);
+        if(i.contentId === item.contentId){
           
           return {...i,'inWatchlist':!i.inWatchlist}
         }else{
@@ -83,7 +83,7 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
     {
     breakpoint: 2000,
     settings: {
-      slidesToShow: 2,
+      slidesToShow: 1,
     },
     },
     {
@@ -103,17 +103,17 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
         
       <div  className="px-2 ">
       <div className="relative  rounded-xl shadow-md overflow-hidden h-full   transition-transform duration-300 hover:scale-104 group ">
-        {console.log("console item content name " , item.contentname , "img url ", item.imgurl,"  final content path " ,decideContentPath(item , projectId , deviceId) , "contentpath",item.contentPath)}
+        {console.log("console item content name " , item.contentName , "img url ", item.imgUrl,"  final content path " ,decideContentPath(item , projectId , deviceId) , "contentPath",item.contentPath , "contentId",item.contentId)}
         <img
-        src={item.imgurl}
-        alt={item.contentname}
+        src={item.imgUrl}
+        alt={item.contentName}
         className="w-full h-50 max-h-50 object-scale-down rounded-2xl"
         />
 
       <div className='flex'>
         {/* 1 st div */}
           <div className="p-2 w-[80%]">
-            <h3 className="text-sm text-white font-medium font-sans">{item.contentname}</h3>
+            <h3 className="text-sm text-white font-medium font-sans">{item.contentName}</h3>
           </div>
 
           {/* 2nd Div  */}
@@ -125,7 +125,7 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
               handleAddToWatchlist(item)
               }
               } className=" p-1 rounded-full shadow">
-                { (watchlistItems.filter(i=> (i.contentid == item.contentid))[0].inWatchlist) ? (
+                { (watchlistItems.filter(i=> (i.contentId == item.contentId))[0].inWatchlist) ? (
                     <MdDone  className="text-white w-6 h-6" />
                   ) : (
                     <FaPlus  className="text-white w-6 h-6 hover:text-yellow-400" />
@@ -137,7 +137,7 @@ export default function CarouselComponent({ items , handleSimilarContent }) {
 
               <button onClick={(e) => {
               e.preventDefault();
-              handleSimilarContent(item.contentid)
+              handleSimilarContent(item.contentId)
               }
               } className=" p-1 rounded-full shadow">
                   <FaMagic  className="text-white w-6 h-6 hover:text-yellow-400"/>

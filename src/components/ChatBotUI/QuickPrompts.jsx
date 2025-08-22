@@ -39,10 +39,10 @@ const QuickPrompts = ({itemss , changeSelection}) => {
   }
 
   return (
-    <div className=" text-white p-4 w-full h-full">
+    <div className=" text-white p-1 w-full h-max">
       {/* <p className="font-semibold mb-4 text-lg">Quick Prompts</p> */}
 
-      <div className="overflow-x-auto  overflow-y-auto no-scroll">
+      <div className="overflow-x-auto  overflow-y-auto  no-scrollbar h-max">
         <div className="space-y-3 w-fit">
           {rows.map((row, rowIndex) => (
             <div key={rowIndex} className="flex gap-3 ">

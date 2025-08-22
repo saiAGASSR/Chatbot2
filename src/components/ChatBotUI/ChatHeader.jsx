@@ -32,7 +32,7 @@ const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat , isTest 
     })
 
     return (
-        <div className="relative top-0 rounded-b-xl text-black p-4 flex justify-between items-center h-[10%]   bg-gradient-to-br from-white via-blue-50 to-blue-100">
+        <div className="rounded-sm text-black p-4 flex justify-between items-center h-[11.5%]   bg-gradient-to-br from-white via-blue-50 to-blue-100">
            {console.log("Chat header is rendered  ")} 
            {console.log("renderedCount of chatHeader ",renderedCount.current)} 
             <div className='flex flex-row'>
@@ -137,7 +137,7 @@ const ChatHeader = memo(function ChatHeader ({setIsOpen , setClearChat , isTest 
                 
                         <div className='ml-2'>
 
-                            <p className="text-xs text-gray-500 font-mono">v1.3</p>
+                            <p className="text-xs text-gray-500 font-mono">v1.4</p>
 
                         </div>
                     </Tooltip>

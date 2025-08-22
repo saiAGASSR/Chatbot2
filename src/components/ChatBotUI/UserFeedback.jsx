@@ -27,7 +27,7 @@ const  UserFeedback = ()=>{
 
                 <div className={` w-[80%] xl:w-[60%]`}>
 
-                    <p className="text-white text-base leading-relaxed    text-lg" >{!showFeedBack? 'Are these relevant for you ?' : `Thanks for your feedback .${isDisliked ? 'We will try to improve' : ''}`}  </p>
+                    <p className="text-white text-base leading-relaxed    text-lg  lg:text-sm" >{!showFeedBack? 'Are these relevant for you ?' : `Thanks for your feedback .${isDisliked ? 'We will try to improve' : ''}`}  </p>
 
                 </div>
 

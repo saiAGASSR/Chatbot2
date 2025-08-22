@@ -93,7 +93,7 @@ import UserFeedback from './UserFeedback';
               </div>
               
             )}
-            {msg.carousel_results && browseButtonsClicked && <BrowseFilters title={filtersTitle} data={configBySelect} setBrowseButtonsClicked={setBrowseButtonsClicked} sendMessage={sendMessage}/>}
+            {msg.carousel_results && browseButtonsClicked && <BrowseFilters title={filtersTitle} data={configBySelect} setBrowseButtonsClicked={setBrowseButtonsClicked} sendMessage={sendMessage} isTyping={isTyping}/>}
           </div>
         ))}
 
